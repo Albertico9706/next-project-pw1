@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@property --rotate{
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}  
+
+
+@keyframes rotation{
+  from{--rotate:60deg}
+  to{--rotate:420deg}
+}
+
+/* .dropdown-content::after{
+  content: "";
+  background: #cb31fa;
+
+  z-index: -1;
+  position: absolute;
+  top: -10px;
+} */
+
+
+@layer{
+  input:invalid{
+      @apply border border-e-red-600
+  }
+}
+
+
+.dropdown:hover .dropdown-content{
+  animation: slide-in 700ms ease  ;
+  @apply block absolute  bg-secondary/30 border border-gray-300 rounded 
+}
+
+
+@layer components{
+
+ 
+
+  
+
+  .after-blow{
+      &::after{
+          content: "";
+          animation: rotation ease-in 3s infinite; 
+          background: conic-gradient(from var(--rotate), yellow 10deg,transparent 45deg 180deg , yellow 180deg 190deg, transparent 225deg 360deg  );
+          @apply  absolute -inset-1 hover:[animation-play-state:paused]   rounded-[inherit] -z-10 
+
+      }
+  }
+
+  
+
+  .auth-links{
+      @apply rounded-s-md rounded-e-md hover:underline transition-all
+  }
+  
+
+  /* .b{
+      background-image: url("/public/img/3957944.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+  } */
+
+/* end block of notes-app */
+
+
+
+  .input-form{
+      @apply hover:shadow-sm hover:shadow-blue-400 border-b-[1px] border-black/40  [outline-width:0px] outline-blue-500/80 focus-within:border-blue-600 transition-colors 
+  }
+  .btn-form{
+      @apply rounded-md bg-green-500 hover:bg-gradient-to-b from-green-600 to-green-500
+  }
+
+  .btn-blue{
+      @apply transition-all p-1 rounded bg-blue-500 hover:bg-gradient-to-b from-blue-600 to-blue-500 hover:scale-110 [transition-duration:300ms]
+      
+  }
+
+  .note-card{
+      @apply bg-cyan-400 w-full mx-auto text-pretty p-4 rounded-md flex flex-col
+  }
+  
+}
+
+@layer utilities{
+  .starting{
+      @starting-style{
+          opacity:0;
+      }
+  }
+
+  .custom-transition{
+      transition: display 1s ease allow-discrete, opacity 1s ease ;
+  }
+
+  .grid-primary{
+      grid-template-areas:
+      "nav content";
+  }
+
+  .grad-primary{
+      @apply bg-gradient-to-br from-pink-300 via-purple-400 to-blue-400
+  }
+   
+}
+
+
+@layer components{
+  /* Restaurancy styles */
+  .links{
+    @apply underline text-blue-500 
+  }
+
+  .link-button{
+    @apply rounded-s-full rounded-e-full  shadow-md hover:shadow-neutral-500 p-1.5 bg-stone-100
+  }
+
+  .links_admin{
+    @apply text-xl block p-4 md:p-8 bg-orange-400 md:h-32  rounded-3xl content-center shadow-md hover:scale-105 transition
+  }
+
+
+  .links-aside{
+    @apply hover:bg-blue-200 w-full p-1 rounded-sm transition [transition-duration:300ms] block dark:hover:bg-orange-500
+  }
+
+  
+}
+
+/* :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+} */
