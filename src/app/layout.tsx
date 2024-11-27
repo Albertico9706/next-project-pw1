@@ -12,10 +12,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-     
-
-
-    <body className="bg-blue-50 bg-center bg-cover bg-no-repeat [&_section>p]:p-4 [&_h2]:select-none min-h-svh">
+    <body className="bg-blue-50 dark:bg-blue-950 dark:text-white bg-center bg-cover bg-no-repeat [&_section>p]:p-4 [&_h2]:select-none max-w-svw min-h-svh">
     <Header/>
       <Toaster
       position='bottom-right'

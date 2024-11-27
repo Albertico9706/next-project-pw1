@@ -1,22 +1,14 @@
 import { Metadata } from "next"
 import Hero from "@/components/Hero"
 import ResturantsSection from "@/components/restaurants/RestaurantsSection"
+import SideNav from "@/components/pw1/SideNav"
 {/* <!-- API JOBICY -->
         <!-- https://jobicy.com/api/v2/remote-jobs?count=20&tag=python --> */}
 
 export default async  function Restaurancy(){
     
     return (<div className="duration-1000 grid grid-cols-[minmax(40px,1fr)_8fr] md:grid-cols-[120px_1fr]  h-full" >
-            <nav className="shadow-lg [&_li]:p-1 [&_li:hover]:bg-blue-200/20 [&_li:hover]:transition-colors p-2 group relative "  >Icon
-                <ul className="starting hidden  md:block group-hover:block max-md:absolute max-md:left-[100%] duration-1000 p-2 opacity-0
-                  max-md:top-0 max-md:group-hover:opacity-100 custom-transition max-md:rounded-lg ">
-                <li>lorem</li>        
-                <li>lorem</li>        
-                <li>lorem</li>        
-                <li>lorem</li>
-                <li>List of options to perform with the notes or the possibles views and filters</li> 
-                </ul>       
-            </nav>
+            <SideNav/>
                 <main className="p-2" >
                     <h2 className="text-center text-3xl font-bold font-sans  p-4 text-blue-400 italic">"Encuentra tu <em className="grad-primary bg-clip-text text-transparent">trabajo</em> remoto"</h2>
             
