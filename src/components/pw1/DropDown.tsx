@@ -1,17 +1,8 @@
-export default function DropDown(){
-    return(<div className=" relative group/dropdown p-1 flex [&_li:hover]:bg-blue-600">DropdownMenu
+export default function DropDown({children,text}:{children:React.ReactNode,text:string}){
+    return(<div className=" relative group/dropdown p-1 flex">{text}
         <span className="rotate-90 md:rotate-180 p-1 text-center  transition-all duration-500  md:group-hover/dropdown:translate-y-0.5 max-md:group-hover/dropdown:translate-x-0.5">^</span>
-        <ul className="hidden bg-blue-400/30 border border-gray-300 rounded group-hover/dropdown:block absolute  group-hover/dropdown:opacity-100 max-md:left-full p-2 w-full starting md:top-full">
-            <li>Lorem</li>
-            <li>Lorem</li>
-            <li>Lorem</li>
-            <li>Lorem</li>
-            <li>Lorem</li>
-            <li>Lorem</li>
-            <li>Lorem</li>
-            <li>Lorem</li>
-            <li>Lorem</li>
-            <li>Lorem</li>
+        <ul className="z-50 hidden border border-gray-300 rounded group-hover/dropdown:block absolute  group-hover/dropdown:opacity-100 max-md:left-full p-2 w-full starting md:top-full *:rounded hover:*:bg-blue-300 *:ps-1">
+            {children}
         </ul>
         </div>)
 }

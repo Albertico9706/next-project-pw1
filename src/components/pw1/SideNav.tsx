@@ -1,7 +1,6 @@
 export default function SideNav(){
     return(<nav className="shadow-lg [&_li]:p-1 [&_li:hover]:bg-blue-200/20 hover:[&_li]:transition-colors p-2 group relative "  >Icon
-        <ul className="starting hidden  md:block group-hover:block group-hover:opacity-100 md:opacity-100 max-md:group-hover:absolute max-md:left-[100%] duration-1000 p-2
-          max-md:top-0  max-md:rounded-lg ">
+        <ul className="hidden opacity-0 group-hover:block group-hover:opacity-100 max-md:absolute max-md:left-full  max-md:top-0 max-md:rounded-lg md:block md:opacity-100 starting p-2">
         <li>lorem</li>        
         <li>lorem</li>        
         <li>lorem</li>        

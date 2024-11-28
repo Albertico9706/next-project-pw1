@@ -3,6 +3,7 @@ import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import React from 'react'
 import Header from '@/components/pw1/Header'
+import SideNav from '@/components/pw1/SideNav'
 
 export const metadata: Metadata = {
   title: 'Create Next App',
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-    <body className="bg-blue-50 dark:bg-blue-950 dark:text-white bg-center bg-cover bg-no-repeat [&_section>p]:p-4 [&_h2]:select-none max-w-svw min-h-svh">
+    <body className=" bg-blue-50 dark:bg-blue-950 dark:text-white  max-w-svw relative">
     <Header/>
       <Toaster
       position='bottom-right'
@@ -22,7 +23,11 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         }
       }
       />
-      {children}
+      <div className=" duration-1000 grid grid-cols-[minmax(40px,1fr)_8fr] md:grid-cols-[120px_1fr] w-full  h-full" >
+            <SideNav/>
+            {children}
+        </div>
+      
     </body>
     
     </html>

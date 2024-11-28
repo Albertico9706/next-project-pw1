@@ -41,19 +41,18 @@
 
 
 @layer components{
-  .dropdown:hover .dropdown-content{
-    animation: slide-in 700ms ease  ;  
-  }
-
-  .after-blow{
+  .blow-animation{
       &::after{
-          content: "";
           animation: rotation ease-in 3s infinite; 
           background: conic-gradient(from var(--rotate), yellow 10deg,transparent 45deg 180deg , yellow 180deg 190deg, transparent 225deg 360deg  );
-          @apply  absolute -inset-1 hover:[animation-play-state:paused]   rounded-[inherit] -z-10 
-
       }
   }
+
+  .loader{
+        animation: rotation ease-in 3s infinite; 
+        background: conic-gradient(from var(--rotate), black,transparent );
+    
+}
 
   
 
@@ -64,12 +63,12 @@
   
 
   .starting{
+    
     --duration:500ms;
     transition: display var(--duration) ease allow-discrete, opacity var(--duration) ease ;
-    @apply  opacity-0;
-      @starting-style{
-          opacity:0;
-      }
+    @starting-style{
+      opacity:0;
+  };
       
   }
 
