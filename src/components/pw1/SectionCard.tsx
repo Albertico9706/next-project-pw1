@@ -1,9 +1,9 @@
 import { ReactNode } from "react";
 
 export default function SectionCard() {
-    return (<section className="p-4 overflow-auto snap-proximity grid grid-cols-[repeat(3,1fr)]   text-white gap-4 transition-all ">
+    return (<section className=" p-4 overflow-auto snap-proximity grid grid-cols-[repeat(3,1fr)] text-white gap-4 transition-all ">
     <BlowCard>
-        s<h3 >Varias regiones incluyendo Europa , Estados Unidos y Latam entre otras</h3>
+        <h3 >Varias regiones incluyendo Europa , Estados Unidos y Latam entre otras</h3>
     </BlowCard>
     <BlowCard>
         <h3>Quisquam doloribus quaerat maxime porro obcaecati ipsa esse officiis neque.</h3>
@@ -23,9 +23,9 @@ export default function SectionCard() {
     </section>);
 }
 function BlowCard({children}:{children:ReactNode}) {
-    return <div className="mx-auto rounded-md  relative  transition-transform w-60 animate-fadeIn border-4 border-black/5  ">
+    return <div className=" mx-auto rounded-md  relative  transition-transform w-60 animate-fadeIn border-4 border-black/5  ">
         <div className="grad-primary h-full  blow-animation rounded-[inherit] p-4 -z-10
-        after:absolute after:-inset-1 after:hover:[animation-play-state:paused] after:[content:''] after:-z-10 after:blur-xs ">
+        after:absolute after:-inset-1 after:hover:[animation-play-state:paused] after:[content:''] after:-z-10 after:blur-xs  ">
             {children}
         </div> 
         </div>;

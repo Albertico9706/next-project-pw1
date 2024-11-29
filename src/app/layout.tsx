@@ -13,7 +13,7 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-    <body className=" bg-blue-50 dark:bg-blue-950 dark:text-white  max-w-svw relative">
+    <body className=" bg-blue-50 min-h-svh max-w-svw relative">
     <Header/>
       <Toaster
       position='bottom-right'
@@ -23,8 +23,8 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
         }
       }
       />
-      <div className=" duration-1000 grid grid-cols-[minmax(40px,1fr)_8fr] md:grid-cols-[120px_1fr] w-full  h-full" >
-            <SideNav/>
+      <div className=" duration-1000  md:grid-cols-[120px_1fr] w-full  h-full" >
+            {/* <SideNav/> */}
             {children}
         </div>
       

@@ -1,7 +1,9 @@
-import BaseForm from "@/components/pw1/BaseForm";
+import FormNotes from "@/components/pw1/FormNotes";
 
 export default function Page(){
     return(
-        <BaseForm/>
+        <div className="flex mt-32 justify-center">
+            <FormNotes/>
+        </div>
     )
 }

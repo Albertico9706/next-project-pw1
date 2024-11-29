@@ -22,18 +22,27 @@
     inherits: false;
     initial-value: 0deg;
   }
-  
-  @property --duration{
-    syntax: "<time>";
-    inherits: false;
-    initial-value: 1s ;
-  }
-  
-  
   @keyframes rotation{
     from{--rotate:60deg}
     to{--rotate:420deg}
   }
+  
+
+  @property --fill{
+    syntax: "<percentage>";
+    inherits: false;
+    initial-value: 0% ;
+  }
+  @keyframes fill{
+    from{--fill:0%}
+    to{--fill:100%}
+  }
+
+  .llenar{
+    animation: fill 4s ease infinite;
+  }
+  
+  
 }
 
 
@@ -48,11 +57,7 @@
       }
   }
 
-  .loader{
-        animation: rotation ease-in 3s infinite; 
-        background: conic-gradient(from var(--rotate), black,transparent );
-    
-}
+  
 
   
 
@@ -86,25 +91,7 @@
 
 
 @layer components{
-  /* Restaurancy styles */
-  .links{
-    @apply underline text-blue-500 
-  }
 
-  .link-button{
-    @apply rounded-s-full rounded-e-full  shadow-md hover:shadow-neutral-500 p-1.5 bg-stone-100
-  }
-
-  .links_admin{
-    @apply text-xl block p-4 md:p-8 bg-orange-400 md:h-32  rounded-3xl content-center shadow-md hover:scale-105 transition
-  }
-
-
-  .links-aside{
-    @apply hover:bg-blue-200 w-full p-1 rounded-sm transition [transition-duration:300ms] block dark:hover:bg-orange-500
-  }
-
-  
 }
 
 /* :root {
