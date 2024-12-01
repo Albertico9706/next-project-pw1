@@ -1,13 +1,14 @@
 import Lorem from "./Lorem";
+import SectionsContent from "./newContent/SectionsContent";
 import RadialProgres from "./RadialProgres";
 import SectionCard from "./SectionCard";
 
 export default function PageMain(){
     return(<main className="[&_>section>p]:p-4 w-full overflow-hidden [h2,h3]:p-4 " >
-        <h1 className="my-32 text-center text-5xl font-bold font-sans w-full  text-blue-400 italic">"Encuentra tu <em className="grad-primary bg-clip-text text-transparent">trabajo</em> remoto"</h1>
+        <h1 className="my-32 text-center text-5xl font-bold font-sans w-full  text-blue-400 italic">Encuentra tu <em className="grad-primary bg-clip-text text-transparent">trabajo</em> remoto</h1>
 
         <SectionCard/>
-    <section className="">
+    <section >
         <h3 className="text-2xl">Publica tus ofertas de trabajo</h3>
 
         <p>
@@ -17,6 +18,7 @@ export default function PageMain(){
     </section>
     <Lorem/>
     <RadialProgres />
+    <SectionsContent/>
     </main>)
 
     

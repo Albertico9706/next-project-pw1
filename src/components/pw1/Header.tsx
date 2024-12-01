@@ -1,12 +1,10 @@
 import Link from "next/link";
-import NavSupermenu from "./NavSupermenu";
-import Moon from "./icons/Moon";
-import Sun from "./icons/Sun";
+/* import NavSupermenu from "./NavSupermenu"; */
 import DropdownDaisy from "./DropdownDaisy";
 
 export default function Header(){
     return(
-    <header className="notes max-w-full flex backdrop-blur-sm justify-between sticky p-2 px-8  place-content-center shadow-lg transition min-w-dvw ">
+    <header className="top-0 notes max-w-full flex backdrop-blur-sm justify-between sticky p-2 px-8  place-content-center shadow-lg transition min-w-dvw ">
         <Logo/>
         <div className="flex gap-8">
         {/* <NavSupermenu/> */}
@@ -30,15 +28,15 @@ function AuthAnchor(){
 function Logo(){
     return(<Link className="font-bold transition duration-1000 text-2xl font-serif hover:text-primary first-letter:text-blue-500 max-sm:w-[26px] overflow-hidden" href="/">WorkRem</Link>)
 } 
-
-function ThemeControler(){
+ {/* this hidden checkbox controls the state */}
+/* function ThemeControler(){
     return(<label className="swap swap-rotate w-2">
-        {/* this hidden checkbox controls the state */}
+       
         <input type="checkbox" className="theme-controller" value="synthwave" />
         <Sun/>
         <Moon/>
       </label>)
-}
+} */
 
 
 

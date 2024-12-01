@@ -1,3 +1,4 @@
+import React from "react"
 export default function DropDown({children,text}:{children:React.ReactNode,text:string}){
     return(<div className=" relative group/dropdown p-1 flex">{text}
         <span className="rotate-90 md:rotate-180 p-1 text-center  transition-all duration-500  md:group-hover/dropdown:translate-y-0.5 max-md:group-hover/dropdown:translate-x-0.5">^</span>

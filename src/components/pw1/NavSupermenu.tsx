@@ -5,7 +5,7 @@ export default function NavSupermenu (){
         <span className="block  md:hidden [&_span]:hover:rotate-90 p-1  ">Supermenu</span>
         <div className="hidden md:flex relative max-md:group-hover/super:flex-col max-md:group-hover/super:flex max-md:group-hover/super:absolute ">
         <DropDown text="Menu1">
-		    <li><a href="/queenproblem">Problema de la reina</a></li>
+            <li><a href="/queenproblem">Problema de la reina</a></li>
 			<li>Quia!</li>
 			<li>Maxime!</li>
 			<li>Nostrum.</li>

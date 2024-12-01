@@ -3,7 +3,7 @@ import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import React from 'react'
 import Header from '@/components/pw1/Header'
-import SideNav from '@/components/pw1/SideNav'
+/* import SideNav from '@/components/pw1/SideNav' */
 
 export const metadata: Metadata = {
   title: 'Create Next App',

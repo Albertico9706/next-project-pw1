@@ -8,7 +8,7 @@ export default function DropdownDaisy(){
     )
 }
 
-function Collapse(){
+/* function Collapse(){
     return(<div className="collapse collapse-arrow hover:collapse-open relative">
         <div className="collapse-title w-full">Title</div>
         <div className="collapse-content w-full">
@@ -16,17 +16,17 @@ function Collapse(){
 
         </div>
     </div>)
-}
+} */
 
 function Menu(){
     return(
-        <ul className="bg-white-400/60 menu-sm self-center glass backdrop-blur-md menu ">
-            <li><a href="">Lorem.</a></li>
-            <li><a href="">Saepe!</a></li>
+        <ul className="bg-white-400/60 menu-sm w-auto self-center glass backdrop-blur-md menu ">
+            <li><a href="users">Usuarios.</a></li>
+            <li><a href="works">Trabajos</a></li>
             <li><a href="">Quas.</a></li>
             <li><a href="">Soluta.</a></li>
             <li><a href="">Obcaecati?</a></li>
-            <li><a href="">Tempore.</a></li>
+            <li><a href="">Problema de la reina.</a></li>
         </ul>
     )
 }
