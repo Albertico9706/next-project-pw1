@@ -1,9 +1,10 @@
+import Link from "next/link"
 import {ReactNode} from "react"
 
 
 export default function SectionsContent(){
     return(
-        <div className="block [&_p]:p-2  [&_h3]:text-4xl [&_h3]:text-primary ">
+        <div className="block [&_p]:p-2  [&_h3]:text-4xl [&_h3]:text-primary [&_h3]:p-4 ">
         <Section1/>
         <Section2/>
         <Section3/>
@@ -24,7 +25,7 @@ function SectionBase({children}:{children:ReactNode}){
 
 function CustomCollapse({children}:{children:ReactNode}){
     return(
-        <div tabIndex={0} className="collapse collapse-arrow focus:collapse-open">
+        <div tabIndex={0} className="p-4 collapse collapse-arrow focus:collapse-open transition-colors hover:bg-slate-600">
             {children}
         </div>
     )
@@ -101,7 +102,7 @@ function Section6(){
         <p>No esperes más y empieza a trabajar desde cualquier lugar del mundo.</p>  
         <strong>¡Regístrate ahora y accede a las mejores oportunidades remotas!</strong>
 
-        <button className="btn btn-primary mt-4">Registrate Gratis</button>
+        <Link href="signin" className="btn btn-primary mt-4">Registrate Gratis</Link>
         </div>
         </SectionBase>
     )

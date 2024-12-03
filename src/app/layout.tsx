@@ -3,6 +3,7 @@ import './globals.css'
 import { Toaster } from 'react-hot-toast'
 import React from 'react'
 import Header from '@/components/pw1/Header'
+import { ThemeProvider } from "@/components/pw1/context/Contexts"
 /* import SideNav from '@/components/pw1/SideNav' */
 
 export const metadata: Metadata = {
@@ -13,7 +14,8 @@ export const metadata: Metadata = {
 export default function RootLayout({children}: {children: React.ReactNode}) {
   return (
     <html lang="en">
-    <body className=" bg-blue-50 min-h-svh max-w-svw relative">
+    <body className=" bg-blue-50 min-h-svh max-w-svw relative dark:text-white dark:bg-slate-950">
+      <ThemeProvider attribute="class" defaultTheme='system' enableSystem>
     <Header/>
       <Toaster
       position='bottom-right'
@@ -28,6 +30,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             {children}
         </div>
       
+    </ThemeProvider>
     </body>
     
     </html>

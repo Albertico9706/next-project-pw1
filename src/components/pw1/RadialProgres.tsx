@@ -11,7 +11,7 @@ export default function Progress({percentage=50}:{percentage?:number}){
        toast(newValue.toString())
     }
     const [value,setValue]=useState(percentage) */
-    console.log(percentage)
+    /* console.log(percentage) */
     //the editor mark as an error in teh atribbute style but this work fine
     /*eslint-disable*/
     return(

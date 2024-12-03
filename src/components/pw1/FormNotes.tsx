@@ -1,8 +1,15 @@
-export default function FormNotes(){
+export default async function  FormNotes(){
     
-
+    
+    
+    const formAction=async(form:FormData)=>{
+        "use server"
+        const entries=Object.fromEntries(form.entries())
+        const {username,password}=entries
+        
+    }
     return(<div className="">
-        <form   className=" dark:bg-slate-700 p-8 py-4  max-w-md mx-auto disabled has:invalid:bg-red-500 shadow shadow-neutral-500">
+        <form action={formAction}  className=" dark:bg-slate-700 p-8 py-4  max-w-md mx-auto disabled has:invalid:bg-red-500 shadow shadow-neutral-500">
         <legend className="text-3xl py-4"><h1>Iniciar Sesión</h1></legend>
         <div className="flex flex-col">
                 <label className="">User:</label> 

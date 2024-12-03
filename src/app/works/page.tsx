@@ -8,6 +8,7 @@ export default async function Page(){
     return(
     <div className="">
         <JobsList/>
+        <button className="btn btn-success btn-square tooltip  fixed bottom-8 right-8 text-3xl text-white" data-tip="Añadir trabajo">+</button>
     </div>)
 }
 

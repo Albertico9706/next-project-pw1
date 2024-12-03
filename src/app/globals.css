@@ -53,7 +53,7 @@
   .blow-animation{
       &::after{
           animation: rotation ease-in 3s infinite; 
-          background: conic-gradient(from var(--rotate), yellow 10deg,transparent 45deg 180deg , yellow 180deg 190deg, transparent 225deg 360deg  );
+          background: conic-gradient(from var(--rotate), orange 10deg,transparent 45deg 180deg , orange 180deg 190deg, transparent 225deg 360deg  );
       }
   }
 

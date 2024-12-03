@@ -1,6 +1,6 @@
 export default function Moon() {
     return (<svg
-        className="swap-on h-10 w-10 fill-current"
+        className="swap-on h-full w-full fill-current"
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24">
         <path
