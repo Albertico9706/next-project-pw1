@@ -9,7 +9,7 @@ export default async  function Restaurancy(){
 }
 
 export const metadata:Metadata={
-    title:"Restaurancy -Nextjs",
-    description:"Curso de sobre ls fundamentos de Nextjs de Gonzalo Pozo",
-    keywords:["restaurant","food","goncy","nextjs"]
+    title:"WokRem",
+    description:"El lugar para encontrar el trabajo de tus sueños",
+    keywords:["remote work","work","remote","jobs"]
 }

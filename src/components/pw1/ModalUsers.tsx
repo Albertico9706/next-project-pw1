@@ -1,3 +1,4 @@
+import { ReactElement} from "react"
 import CloseModal from "./CloseModal"
 import ShowModalD from "./ShowModalD"
 
@@ -6,11 +7,11 @@ import ShowModalD from "./ShowModalD"
 export default function ModalUsers(){
     return( 
     <div>
-        <ShowModalD/>
+        <ShowModalD children="Open Modal" className="btn btn-primary"/>
         <dialog className="modal" role="dialog" id="create">
             <div className="modal-box">
-                <form method="Post" className="flex flex-col [&_input]:input [&label]:label"> 
                     <CloseModal/>
+                <form method="Post" className="flex flex-col [&_input]:input [&label]:label"> 
                 <h3 className="text-lg font-bold">Registro de Usuario</h3>
                 <legend>Create User</legend>
                     <label htmlFor="name" className="" >Usuario</label>
@@ -25,3 +26,7 @@ export default function ModalUsers(){
         </dialog>
     </div>)
 }
+
+
+
+

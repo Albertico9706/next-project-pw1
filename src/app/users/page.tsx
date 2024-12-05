@@ -14,9 +14,7 @@ export default function Users(){
         const users=await prisma.user.findMany()
         return(
             <section>
-                {users.map((user)=>{
-                    return <SingleUser key={user.id} user={user}/>
-                })}
+                {users.map((user)=>{ return <SingleUser key={user.id} user={user}/>})}
                 <ModalUsers/>
                 <CreateUser/>
             </section>
@@ -29,7 +27,6 @@ export default function Users(){
                 <h6><b>User</b>: {user.id}</h6>
                 <p><b>Name</b>: {user.name}</p>
                 <p><b>Email</b>: {user.email}</p>
-    
             </div>
         )
     }

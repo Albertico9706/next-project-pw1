@@ -35,17 +35,17 @@ model Post {
 
 
 model Job {
-  id                Int         @id 
-  url               String      
-  jobSlug           String
+  id                Int         @id @default(autoincrement())
+  url               String?      
+  jobSlug           String?
   jobTitle          String
   companyName       String
-  companyLogo       String
+  companyLogo       String?
   jobGeo            String
   jobLevel          String
-  jobExcerpt        String      @db.Text
-  jobDescription    String      @db.Text
-  pubDate           String
+  jobExcerpt        String?      @db.Text
+  jobDescription    String?      @db.Text
+  pubDate           String?
   annualSalaryMin   String?
   annualSalaryMax   String?
   salaryCurrency    String?

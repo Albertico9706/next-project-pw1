@@ -1,10 +1,12 @@
 "use client"
 import toast from "react-hot-toast"
+import { showModal } from "@/lib/utils/client"
+import { ButtonHTMLAttributes, ReactNode } from "react"
 
-export default function ShowModalD(){
-    return(<button className="btn btn-primary" onClick={()=>{
-        const dialog=document.querySelector("dialog")
-        toast(<div className="text-warning ">Dialog</div>)
-        dialog?.showModal()
-    }}>Open Modal</button>)
+type Props={
+    children:ReactNode,
+    className:string}
+
+export default function ShowModalD({children,className}:Props){
+    return(<button className={className} onClick={showModal}>{children}</button>)
 }
