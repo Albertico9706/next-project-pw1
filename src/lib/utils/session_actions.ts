@@ -6,9 +6,10 @@ import {SALT_ROUNDS,JWTKEY} from "@/lib/config"
 import jwt from "jsonwebtoken"
 import { cookies } from "next/headers"
 import bcrypt from "bcrypt"
+import { redirect } from "next/navigation"
 //install server-only para asegurar que solo se use en el servidor
 
-export interface TokenDataType{id: User["id"],role:User["role"] ,name:User['name']}
+export interface TokenDataType{id: string,role:User["role"] ,name:User['name']}
 const UserStore=prisma.user
 
 
@@ -40,7 +41,7 @@ export const checkUser=async()=>{
      const data=await getDataToken()
      console.log("checkUser")
      if(!data) return null
-     const user=await UserStore.findUnique({where:{id:data.id}})
+     const user=await UserStore.findUnique({where:{id:Number(data.id)}})
      if(!user) return null
      return user
     }
@@ -50,11 +51,14 @@ export const checkUser=async()=>{
         console.log(existUser)
         if(existUser) return null
         const hashPass=bcrypt.hashSync(_password,10)
-        console.log(hashPass)
-        const {id,role,name}=await UserStore.create({data:{name:_name,password:hashPass}})
-        
-        const access_token= jwt.sign({id,role,name},JWTKEY)
-        cookies().set("access_token",access_token)       
+        const user=await UserStore.create({data:{name:_name,password:hashPass}})
+        if(!user) return
+        const {id,role,name}=user
+        const tokenData={id:id.toString,role,name}
+        const access_token= jwt.sign(tokenData,JWTKEY)
+
+        console.log("access token",access_token)
+        redirect("/")
     }
 
 /**
@@ -69,10 +73,12 @@ export async function loginUser({_name,_password}:Credentials){
     if(!user) {return null}
     const isPassword= await bcrypt.compare(_password,user.password)
     if(!isPassword) return null
-    const{id,role}=user
-    const token_data={id,role}
+    const{id,role,name}=user
+    const token_data={id:id.toString(),role,name}
     const access_token= jwt.sign(token_data,JWTKEY)
+    createToken(token_data)
     cookies().set("access_token",access_token)
+    
     return true
 }
 

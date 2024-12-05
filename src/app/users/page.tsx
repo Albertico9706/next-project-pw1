@@ -16,7 +16,7 @@ export default function Users(){
             <section>
                 {users.map((user)=>{ return <SingleUser key={user.id} user={user}/>})}
                 <ModalUsers/>
-                <CreateUser/>
+                {/* <CreateUser/> */}
             </section>
         )
     }

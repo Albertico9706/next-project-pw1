@@ -1,11 +1,30 @@
+import { SALT_ROUNDS } from "@/lib/config"
+import prisma from "@/lib/prisma"
+import { createToken } from "@/lib/utils/session_actions"
+import bcrypt from "bcrypt" 
+import { redirect } from "next/navigation"
+
 export default async function  FormNotes(){
     
-    
+    type FormEntries={
+        username:string,
+        password:string
+    }
     
     const formAction=async(form:FormData)=>{
         "use server"
-        const entries=Object.fromEntries(form.entries())
+        const entries=Object.fromEntries(form.entries()) as FormEntries
         const {username,password}=entries
+        const user=await prisma.user.findFirst({where:{name:username}})
+        if(!user) return 
+        console.log(entries) 
+        const isPassword=bcrypt.compareSync(password,user?.password)
+        if(!isPassword) return
+        const {id,role,name}=user
+        const tokenData={id:id.toString(),role,name}
+        createToken(tokenData)
+        console.log("login",tokenData)
+        redirect("/")
         
     }
     return(<div className="">
