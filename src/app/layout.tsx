@@ -4,6 +4,7 @@ import { Toaster } from 'react-hot-toast'
 import React from 'react'
 import Header from '@/components/pw1/Header'
 import { ThemeProvider } from "@/components/pw1/context/Contexts"
+import { AllSvg } from '@/components/pw1/icons/hghgh'
 /* import SideNav from '@/components/pw1/SideNav' */
 
 export const metadata: Metadata = {
@@ -29,7 +30,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             {/* <SideNav/> */}
             {children}
         </div>
-      
+      <footer><AllSvg/></footer>
     </ThemeProvider>
     </body>
     
