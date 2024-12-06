@@ -1,6 +1,7 @@
 import Link from "next/link";
 import DropdownDaisy from "./DropdownDaisy";
 import ThemeControler from "./ThemeControler";
+import AuthAnchor from "./AuthAnchor";
 
 export default function Header(){
     return(
@@ -14,15 +15,7 @@ export default function Header(){
     </header>)
 }
 
-function AuthAnchor(){
-    return(
-    <div className="hidden sm:flex gap-4 items-center [&_a]:btn-sm ">
-        <Link href="/login" className="btn btn-outline outline-white">Login</Link>
-        <Link href="/signin" className="btn btn-primary ">Signin</Link>
-    </div>
-    )
-    
-}
+
 
 function Logo(){
     return(<Link className="font-bold transition duration-1000 text-2xl font-serif hover:text-primary first-letter:text-blue-500 max-sm:w-[26px] overflow-hidden" href="/">WorkRem</Link>)

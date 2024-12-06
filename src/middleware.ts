@@ -19,7 +19,7 @@ if(url.pathname.startsWith('/modify')){
     return NextResponse.redirect(url)
 }
 
-if(url.pathname.startsWith('/admin') && role!== "user"){
+if(url.pathname.startsWith('/admin') && role!== "admin"){
     url.pathname='/login'
     return NextResponse.redirect(url)
 }
