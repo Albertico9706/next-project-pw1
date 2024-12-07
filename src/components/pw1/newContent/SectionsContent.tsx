@@ -25,7 +25,7 @@ function SectionBase({children}:{children:ReactNode}){
 
 function CustomCollapse({children}:{children:ReactNode}){
     return(
-        <div tabIndex={0} className="p-4 collapse collapse-arrow focus:collapse-open transition-colors hover:bg-slate-600">
+        <div tabIndex={0} className="p-4 collapse collapse-arrow focus:collapse-open transition-colors hover:bg-white dark:hover:bg-slate-600">
             {children}
         </div>
     )

@@ -1,8 +1,8 @@
 "use client"
 import { TokenDataType } from "@/lib/utils/session_actions";
 import { ThemeProvider as NextThemeProvider } from "next-themes";
-import { createContext, Dispatch, ReactNode, SetStateAction, useEffect, useState } from "react";
-import { getDataToken } from "@/lib/utils/session_actions";
+import { Children, createContext, Dispatch, ReactNode, SetStateAction, useEffect, useRef, useState } from "react";
+import { RefObject } from "react";
 export function ThemeProvider({children,...props}:React.ComponentProps<typeof NextThemeProvider>){
     return (
         <NextThemeProvider {...props}>{children}</NextThemeProvider>
@@ -33,4 +33,15 @@ export function AuthProvider({children,value}:{children:ReactNode,value:TokenDat
         </AuthContext.Provider>
     )
 }
- 
+
+
+export const FormRefContext=createContext<RefObject<HTMLDialogElement>|null>(null)
+export function FormRefProvider({children}:{children:ReactNode}){
+    const ref=useRef<RefObject<HTMLDialogElement>()
+    return(
+        <FormRefContext.Provider value={ref}>
+        {children}
+    </FormRefContext.Provider>
+    )
+    
+}

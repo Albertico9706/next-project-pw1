@@ -1,3 +1,5 @@
+import CardJob from "@/app/works/CardJob";
+import prisma from "@/lib/prisma";
 import { ReactNode } from "react";
 
 export default function SectionCard() {
@@ -29,5 +31,21 @@ function BlowCard({children}:{children:ReactNode}) {
             {children}
         </div> 
         </div>;
+}
+
+
+export async function  SectionJobs(){
+    const jobs =await prisma.job.findMany()
+    
+    return (
+        <section className="*:w-240 *:h-auto flex gap-4 overflow-auto snap-x snap-start p-8">
+            {jobs.map((job)=>{
+                return <CardJob key={job.id} job={job}/>
+
+            })}
+        </section>
+    )
+
+
 }
 

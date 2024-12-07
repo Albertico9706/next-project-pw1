@@ -40,7 +40,8 @@ export default async function RootLayout({children}: {children: React.ReactNode}
             {/* <SideNav/> */}
             {children}
         </div>
-      <footer><AllSvg/></footer>
+
+        <footer className='flex w-full h-8 justify-center items-center bg-black/10'><div>All rigths reserved</div></footer>
         </AuthProvider>
     
     </ThemeProvider>

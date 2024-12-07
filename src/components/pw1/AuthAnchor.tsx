@@ -21,7 +21,7 @@ export default  function AuthAnchor(){
         <Link href="/signin" className="btn btn-primary ">Signin</Link>
     </div>
     :
-    <div>
+    <div className="flex gap-2 items-center">
     {tokenData.name}
     <ButtonLogOut/>
     

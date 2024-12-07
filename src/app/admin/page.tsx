@@ -1,3 +1,5 @@
+import JobTable from "./adminTables/JobTable"
+
 export default function Page(){
-    return(<div>Panel de Administración</div>)
+    return(<div><JobTable/></div>)
 }

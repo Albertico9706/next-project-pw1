@@ -13,10 +13,13 @@ fetch("/logout",{method:"Post"})
     return res.json()
 }).then(data=>{
     console.log(data)
-    if(setTokenData)setTokenData(undefined)})
+    if(setTokenData){
+        setTokenData(undefined)
+        location.assign("/")
+    }})
 }
 
     return(
-        <button onClick={handleClick}  className="btn btn-outline btn-sm" >Logout</button>
+        <button onClick={handleClick}  className="btn btn-sm" >Logout</button>
     )
 }
