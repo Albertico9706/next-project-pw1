@@ -5,9 +5,7 @@ import { Location } from "@/components/pw1/icons/AllSvg"
 
 type Props={job:Job}
 
-export default function CardJob({job}:Props){
-    const date=job.pubDate? new Date(job.pubDate):job.pubDate
-    
+export default function CardJob({job}:Props){  
     return(
         <div className="p-8 bg-white shadow card dark:bg-slate-900">
             <CardJobTitle job={job}/>

@@ -2,7 +2,6 @@ import prisma from "@/lib/prisma"
 import { Job } from "@prisma/client"
 import xss from "xss"
 import { CardJobTitle } from "../CardJob"
-import { title } from "process"
 
 export default async function  Page ({params:{id}}:{params:{id:string}}){
     const job=await prisma.job.findFirst({where:{id:Number(id)}})
@@ -46,7 +45,7 @@ function ProvidedHtml({content}:{content:string}){
     })
 } 
 
-export async function generateMetada({params:{id}}:{params:{id:string}}){
+/* export async function generateMetada({params:{id}}:{params:{id:string}}){
 const job=await prisma.job.findFirst({where:{id:Number(id)}})
     return(
         {
@@ -54,4 +53,4 @@ const job=await prisma.job.findFirst({where:{id:Number(id)}})
             description:``
         }
     )
-}
+} */

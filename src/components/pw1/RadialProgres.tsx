@@ -4,6 +4,7 @@
 import toast from "react-hot-toast" */
 
 export default function Progress({percentage=50}:{percentage?:number}){
+    if(percentage)console.log(percentage)
    /*  const handleClick=()=>{
         const newValue=value==90? 50:90
       setValue(newValue)

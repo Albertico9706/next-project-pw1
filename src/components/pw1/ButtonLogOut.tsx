@@ -1,6 +1,6 @@
 "use client"
 import { useContext } from "react"
-import { AuthContext, AuthDispatch } from "./context/Contexts"
+import {AuthDispatch } from "./context/Contexts"
 
 
 

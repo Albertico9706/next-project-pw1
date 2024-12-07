@@ -31,7 +31,7 @@ export default function Users(){
         )
     }
 
-    function CreateUser(){
+    /* function CreateUser(){
         return(
             <div className="w-[40%] h-[60%] modal peer-checked:modal-open  mx-auto top-[20%]   ">
                 <input type="checkbox" className="top-0 right-0 checkbox-primary modal-toggle" />
@@ -46,7 +46,7 @@ export default function Users(){
                 </form>
             </div>
         )
-    }
+    } */
 
 
 

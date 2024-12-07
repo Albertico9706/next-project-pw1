@@ -1,4 +1,3 @@
-import { ReactElement} from "react"
 import CloseModal from "./CloseModal"
 import ShowModalD from "./ShowModalD"
 
@@ -7,7 +6,7 @@ import ShowModalD from "./ShowModalD"
 export default function ModalUsers(){
     return( 
     <div>
-        <ShowModalD children="Open Modal" className="btn btn-primary"/>
+        <ShowModalD className="btn btn-primary">Open Modal</ShowModalD>
         <dialog className="modal" role="dialog" id="create">
             <div className="modal-box">
                     <CloseModal/>

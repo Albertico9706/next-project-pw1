@@ -1,8 +1,6 @@
-import { revalidatePath } from "next/cache"
-import { redirect } from "next/navigation"
 import { cookies } from "next/headers"
-import { NextRequest, NextResponse } from "next/server"
-export const dinamyc="force-dinamyc"
+import { NextRequest } from "next/server"
+export const dynamic="force-dynamic"
 
 
 export  function POST(req:NextRequest){

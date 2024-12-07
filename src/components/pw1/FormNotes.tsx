@@ -1,4 +1,3 @@
-import { SALT_ROUNDS } from "@/lib/config"
 import prisma from "@/lib/prisma"
 import { createToken } from "@/lib/utils/session_actions"
 import bcrypt from "bcrypt" 

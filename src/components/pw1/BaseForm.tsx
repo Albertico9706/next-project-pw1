@@ -1,4 +1,4 @@
-import { Credentials, signinUser } from "@/lib/utils/session_actions"
+import { signinUser } from "@/lib/utils/session_actions"
 import SignInButton from "./SignInButton"
 type Props={
     register?:boolean

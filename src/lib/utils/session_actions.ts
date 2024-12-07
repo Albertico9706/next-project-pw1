@@ -2,7 +2,7 @@
 import{  User } from "@prisma/client"
 import prisma from "@/lib/prisma"
 import { JwtPayload } from "jsonwebtoken"
-import {SALT_ROUNDS,JWTKEY} from "@/lib/config"
+import {JWTKEY} from "@/lib/config"
 import jwt from "jsonwebtoken"
 import { cookies } from "next/headers"
 import bcrypt from "bcrypt"

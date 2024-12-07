@@ -1,9 +1,8 @@
 "use client"
 import { TokenDataType } from "@/lib/utils/session_actions";
 import { ThemeProvider as NextThemeProvider } from "next-themes";
-import { Children, createContext, Dispatch, ReactNode, RefObject, SetStateAction, useEffect, useRef, useState } from "react";
-import { MutableRefObject } from "react";
-export function ThemeProvider({children,...props}:React.ComponentProps<typeof NextThemeProvider>){
+import { ComponentProps, createContext, Dispatch, ReactNode, RefObject, SetStateAction, useEffect, useRef, useState } from "react";
+export function ThemeProvider({children,...props}:ComponentProps<typeof NextThemeProvider>){
     return (
         <NextThemeProvider {...props}>{children}</NextThemeProvider>
     )
