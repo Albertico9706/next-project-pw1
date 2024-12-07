@@ -3,7 +3,15 @@ import { Job } from "@prisma/client"
 import xss from "xss"
 import { CardJobTitle } from "../CardJob"
 
-export default async function  Page ({params:{id}}:{params:{id:string}}){
+export async function generateStaticParams(){
+    const jobs=await prisma.job.findMany()
+    return jobs.map((job)=>({
+       id:job.id.toString()
+    }))
+} 
+
+export default async function  Page ({params}:{params:{id:string}}){
+    const {id}=await params
     const job=await prisma.job.findFirst({where:{id:Number(id)}})
     return(<>{job&& <SingleJob job={job}/>}</>)
 }
@@ -38,12 +46,8 @@ function ProvidedHtml({content}:{content:string}){
 }
 
 
- export async function generateStaticParams(){
-    const jobs=await prisma.job.findMany()
-    return jobs.map((job)=>{
-        job.id
-    })
-} 
+
+
 
 /* export async function generateMetada({params:{id}}:{params:{id:string}}){
 const job=await prisma.job.findFirst({where:{id:Number(id)}})

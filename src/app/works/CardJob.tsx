@@ -2,7 +2,7 @@ import Image from "next/image"
 import { Job } from "@prisma/client"
 import { CalenDate } from "@/components/pw1/icons/AllSvg"
 import { Location } from "@/components/pw1/icons/AllSvg"
-
+import Link from "next/link"
 type Props={job:Job}
 
 export default function CardJob({job}:Props){  
@@ -16,7 +16,7 @@ export default function CardJob({job}:Props){
             </div>
             <div className="card-actions flex justify-between items-center"> 
             <p className="flex"><Location/>{job.jobGeo}</p>    
-                <a href={`/works/${job.id.toString()}`} className="btn btn-secondary ">Ver Detalles <span className="rotate-90">^</span> </a>
+                <Link href={`/works/${job.id.toString()}`} className="btn btn-secondary ">Ver Detalles <span className="rotate-90">^</span> </Link>
             </div>
         </div>
     )

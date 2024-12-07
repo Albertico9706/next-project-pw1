@@ -32,7 +32,6 @@ async function JobsList(){
 
 export function CreateJob(){
     return(<div>
-
         <ShowModalD className="btn btn-success btn-square tooltip  fixed bottom-8 right-8 text-3xl text-white" data-tip="Añadir trabajo">
             +
         </ShowModalD>
