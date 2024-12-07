@@ -1,4 +1,6 @@
-import { ReactElement } from "react"
+"use client"
+import { FormRefContext } from "./context/Contexts"
+import { ReactElement, useContext } from "react"
 import CloseModal from "./CloseModal"
 type Prop={children:ReactElement}
 /**
@@ -8,8 +10,9 @@ type Prop={children:ReactElement}
 
 
 export default function DialogModal({children}:Prop){
+    const ref=useContext(FormRefContext)
     return(
-    <dialog className="modal" role="dialog" id="create">
+    <dialog className="modal" role="dialog" ref={ref} id="create">
         <div className="modal-box p-8  dark:bg-slate-700 max-w-fit flex flex-col items-center ">
                 <CloseModal/>
             {children}
