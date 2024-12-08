@@ -1,22 +1,24 @@
 "use client"
 import { useContext } from "react"
 import {AuthDispatch } from "./context/Contexts"
+import { hitRediret } from "@/lib/actions/server_actions"
+
 
 
 
 export default function ButtonLogOut(){
 const {setTokenData}=useContext(AuthDispatch)
-const handleClick=()=>{
-fetch("/logout",{method:"Post"})
+const handleClick=async()=>{
+const data=await fetch("/logout",{method:"Post"})
 .then(res=>{
     if(!res.ok) return
     return res.json()
-}).then(data=>{
-    console.log(data)
-    if(setTokenData){
-        setTokenData(undefined)
-        location.assign("/")
-    }})
+}) 
+console.log(data)
+if(!(setTokenData&&data))return
+setTokenData(undefined)
+hitRediret("/")
+
 }
 
     return(

@@ -9,7 +9,7 @@ import { getDataToken } from '@/lib/utils/session_actions'
 
 export const metadata: Metadata = {
   title: 'WorkRem',
-  description: '',
+  description: 'El sitio para encontrar un trabajo a tu medida',
 }
 
 export default async function RootLayout({children}: {children: React.ReactNode}) {
@@ -31,7 +31,6 @@ export default async function RootLayout({children}: {children: React.ReactNode}
       }
       />
       <div className=" duration-1000  md:grid-cols-[120px_1fr] w-full  h-full" >
-            {/* <SideNav/> */}
             {children}
         </div>
 

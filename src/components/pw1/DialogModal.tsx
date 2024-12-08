@@ -19,3 +19,15 @@ export default function DialogModal({children}:Prop){
         </div>
     </dialog>)
 }
+
+export function ConfirmModal({askConfirm}:{askConfirm:boolean}){
+    const ref=useContext(FormRefContext)
+    return(
+    <dialog className="modal" role="dialog" ref={ref} id="create">
+        <div className="modal-box p-8  dark:bg-slate-700 max-w-fit flex flex-col items-center [&_button]:btn ">
+                <CloseModal/>
+           <p>Esta seguro que desea realizar esta accion</p>
+           <button>Si</button><button>No</button>
+        </div>
+    </dialog>)
+}

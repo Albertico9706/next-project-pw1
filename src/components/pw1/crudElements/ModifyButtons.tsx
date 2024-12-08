@@ -1,5 +1,5 @@
 import ButtonUpdate from "./ButtonUpdate"
-import ButtonDelete from "@/app/admin/ButtonDelete"
+import ButtonDelete from "@/components/pw1/crudElements/ButtonDelete"
 
 export default function ModifyButtons({id}:{id:number}){
     return(<> 

@@ -1,6 +1,3 @@
-import FormJob from "@/components/pw1/forms/FormJob"
-import DialogModal from "@/components/pw1/DialogModal"
-import ShowModalD from "@/components/pw1/ShowModalD"
 import prisma from "@/lib/prisma"
 import CardJob from "./CardJob"
 import { Metadata } from "next"
@@ -30,22 +27,11 @@ async function JobsList(){
 
 
 
-export function CreateJob(){
-    return(<div>
-        <ShowModalD className="btn btn-success btn-square tooltip  fixed bottom-8 right-8 text-3xl text-white" data-tip="Añadir trabajo">
-            +
-        </ShowModalD>
-        <DialogModal>
-        <FormJob/>
-        </DialogModal>
-    </div>
-        
-    )
-}
+
 
 
 export const metadata:Metadata={
-    title:"",
+    title:"WorkRem",
     description:""
 }
 
