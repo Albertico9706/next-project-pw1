@@ -18,7 +18,10 @@ export default  function AuthAnchor(){
     </div>
     :
     <div className="flex gap-2 items-center">
-    {tokenData.name}
+    <div className="avatar placeholder items-center gap-2 p-4" >
+        <div className=" btn btn-disabled bg-slate-700 dark:text-white/80  btn-square btn-sm" >{tokenData.name.at(0)}</div>
+        <p>{tokenData.name}</p>
+    </div>
     <ButtonLogOut/>
     
     </div>
