@@ -6,6 +6,7 @@ import prisma from "../prisma"
 import { createToken, signinUser } from "../utils/session_actions"
 import bcrypt from "bcrypt" 
 import {z, ZodAny, ZodObject, ZodTypeAny} from "zod"
+import { revalidatePath } from "next/cache"
 
 export const hitRediret=(url:string)=>{
     redirect(url)
@@ -92,6 +93,7 @@ export const actionCreateJob:ValidatingAction<Job>=async(state,formData)=>{
 const entries=Object.fromEntries(formData.entries())
 const job=schemas.job.safeParse(entries)
 if(!job.success) return {success:false ,error:job.error.flatten().fieldErrors }
+revalidatePath("/admin")
 const JobStore=prisma.job
 const newJob=await JobStore.create({data:job.data})
 console.log(newJob)
@@ -104,6 +106,7 @@ const validData=(formData:FormData,schema:ReturnType<typeof z.object>)=>{
     return schema.safeParse(formData)
     
 }
+
 
 
 

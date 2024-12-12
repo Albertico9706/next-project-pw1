@@ -1,11 +1,15 @@
-import CreateJob from "@/components/pw1/crudElements/CreateJob"
+
 import ModifyButtons from "@/components/pw1/crudElements/ModifyButtons"
 import prisma from "@/lib/prisma"
 import { Job } from "@prisma/client"
 import Image from "next/image"
 import { columns } from "../page"
 import { SelectColum } from "../page"
+import Link from "next/link"
+import ButtonDeleteJob from "../[forms]/ButtonDeleteJob"
 //Filtrado por cada campo y ordenar segun el campo tambien
+
+const baseUrl="/admin"
 
 export default async function JobTable(){
     const jobs =await prisma.job.findMany()
@@ -27,8 +31,7 @@ export default async function JobTable(){
             })}
         </tbody>
     </table>
-    <CreateJob/>
-    
+    <Link className="btn btn-success btn-square tooltip  fixed bottom-8 right-8 text-3xl text-white" data-tip="Añadir trabajo" href={"/admin/create"}>+</Link>
     </>
     )
 }
@@ -44,8 +47,17 @@ export  function JobRow({job}:{job:Job}){
         <td>{jobLevel}</td>
         <td>{jobGeo}</td>
         <td>{pubDate}</td>
-        <td className="flex gap-2 items-center"><ModifyButtons id={id}/></td>
+        <td className="flex gap-2 items-center"><CrudElements id={id}/></td>
     </tr>)
+}
+
+function CrudElements({id}:{id:number}){
+    return(
+        <div className="flex">
+            <Link href={`/admin/update/?id=${id}`} className="btn btn-xs btn-square">U</Link>
+            <ButtonDeleteJob id={id}/>
+        </div>
+    )
 }
 
 function HeadJobTable({columns}:{columns:string[]}){
