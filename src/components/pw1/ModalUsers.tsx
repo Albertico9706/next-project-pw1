@@ -1,12 +1,12 @@
-import CloseModal from "./CloseModal"
-import ShowModalD from "./ShowModalD"
+/* import CloseModal from "./CloseModal"
+import ButtonShowModal from "./ButtonShowModal"
 
 
 
 export default function ModalUsers(){
     return( 
     <div>
-        <ShowModalD className="btn btn-primary">Open Modal</ShowModalD>
+        <ButtonShowModal className="btn btn-primary">Open Modal</ButtonShowModal>
         <dialog className="modal" role="dialog" id="create">
             <div className="modal-box">
                     <CloseModal/>
@@ -29,3 +29,4 @@ export default function ModalUsers(){
 
 
 
+ */

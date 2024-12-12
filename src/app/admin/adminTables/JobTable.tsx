@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma"
 import { Job } from "@prisma/client"
 import Image from "next/image"
 
-
+//Filtrado por cada campo y ordenar segun el campo tambien
 
 export default async function JobTable(){
     const jobs =await prisma.job.findMany()

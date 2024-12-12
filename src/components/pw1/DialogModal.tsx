@@ -4,7 +4,7 @@ import { ReactElement, useContext } from "react"
 import CloseModal from "./CloseModal"
 type Prop={children:ReactElement}
 /**
- * Usar en conjunto con el ShowModalD
+ * Usar en conjunto con el ButtonShowModal
 * @param param0 El formulario a mostrar en la modal
 */
 

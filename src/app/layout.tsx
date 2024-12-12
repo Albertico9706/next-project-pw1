@@ -26,7 +26,9 @@ export default async function RootLayout({children}: {children: React.ReactNode}
       position='bottom-right'
       toastOptions={
         {duration:3000,
-          error:{id:"error"}
+          success:{id:"success"},
+          error:{id:"error"},
+          loading:{id:"loading"},
         }
       }
       />

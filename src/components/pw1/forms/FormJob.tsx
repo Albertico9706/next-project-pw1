@@ -1,22 +1,14 @@
-import prisma from "@/lib/prisma"
-import { Job } from "@prisma/client"
+"use client"
 
-const formAction=async (formData:FormData)=>{
-    "use server"
-const entries=Object.fromEntries(formData.entries())
-const {jobTitle,jobGeo,jobLevel,companyName,companyLogo,salaryCurrency,jobDescription}=entries
-const values= {jobTitle,jobGeo,jobLevel,companyName,companyLogo,salaryCurrency,jobDescription} as Job
-const validates=validateEntries(values) as Job
-const JobStore=prisma.job
-const newJob=await JobStore.create({data:validates})
-console.log(newJob)
-
-}
-export type JobFormData={
- 
-} 
+import { actionCreateJob } from "@/lib/actions/server_actions"
+import { sign } from "crypto"
+import { useFormState } from "react-dom"
+import toast from "react-hot-toast"
 
 export default function FormJob(){
+    const[state,formAction,isPending]=useFormState(actionCreateJob ,{success:false})
+    const {error,success,data}=state  
+    success&& toast(`Oferta añadida`,{id:"success"})
     return(
         <form action={formAction} className="*:w-full max-w-fit  flex flex-col items-start [&_input]:ps-2 [&_*:has(+required)]:text-red-700  [&_label]:label
         md:grid md:grid-cols-2">
@@ -34,11 +26,4 @@ export default function FormJob(){
             <input type="submit" className="btn btn-accent mt-8 col-span-2" value="HGHGH" />
         </form>
     )
-}
-
-const validateEntries=(entries:Job)=>{
-const {jobTitle,jobLevel,companyLogo,companyName,jobDescription,jobGeo}=entries
-
-return{jobTitle,jobLevel,companyLogo,companyName,jobDescription,jobGeo}
-
 }
