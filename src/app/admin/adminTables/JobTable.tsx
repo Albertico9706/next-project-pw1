@@ -3,21 +3,23 @@ import ModifyButtons from "@/components/pw1/crudElements/ModifyButtons"
 import prisma from "@/lib/prisma"
 import { Job } from "@prisma/client"
 import Image from "next/image"
-
+import { columns } from "../page"
+import { SelectColum } from "../page"
 //Filtrado por cada campo y ordenar segun el campo tambien
 
 export default async function JobTable(){
     const jobs =await prisma.job.findMany()
+    const cant=jobs.length
     jobs.sort((a,b)=>{
         return a.id - b.id
     })
-    const columns=["Id","Image","Compañía","Titulo","Nivel","Localización","Fecha"]
+
     return(
     <>
+    {/* Solo para ver el cantidad de elementos en la tabla */}
+    <div className="btn fixed left-4 bottom-4 opacity-60 hover:opacity-100 z-10">{cant} Elementos en la tabla</div>
     <table className="max-md:max-w-md table relative table-pin-rows  divide-y overflow-auto even:*:*:bg-blue-100/40 ">
-        <thead className="mt-40">
-            <HeadJobTable columns={columns}/>
-        </thead>
+        <HeadJobTable columns={columns}/>
         <tbody>
             {jobs.map((job)=>{
                 console.log(job.id)
@@ -26,15 +28,7 @@ export default async function JobTable(){
         </tbody>
     </table>
     <CreateJob/>
-    <div className="join fixed top-16 z-20 right-1/2  group">
-        <div className="  peer">Firter by</div>
-        <select name="" id="">
-            <option selected value="">Filter</option>
-        {columns.map((col,i)=>{
-                return <option key={i}>{col}</option>
-            })}
-        </select>
-    </div>
+    
     </>
     )
 }
@@ -56,23 +50,18 @@ export  function JobRow({job}:{job:Job}){
 
 function HeadJobTable({columns}:{columns:string[]}){
     return(
-        <tr className=" bg-blue-50 dark:bg-slate-950 ">
+        <thead className="mt-40">
+        <tr className=" bg-blue-50 dark:bg-slate-950 [th]:resize [th]:resize-x resize ">
             {columns.map((col,i)=>{
                 return <th key={i}>{col}</th>
             })}
-        <th className="join" ></th>
+        <th className="join" ><SelectColum/></th>
         </tr>
+         </thead>
     )
 }
 
-const compareId=(a:Job,b:Job)=>{
-    return a.id - b.id
-}
 
-const compareDate=(a:Job,b:Job)=>{
-    if(!(a.pubDate&&b.pubDate))return Infinity
-    return (new Date(a.pubDate).getTime()-new Date(b.pubDate).getTime())
-}
 
 
 function SearchFloating(){
@@ -83,4 +72,5 @@ function SearchFloating(){
     </div>
     )
 }
+
 

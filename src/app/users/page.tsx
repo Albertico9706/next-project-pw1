@@ -1,6 +1,5 @@
 import prisma from "@/lib/prisma"
 import { User } from "@prisma/client"
-import ModalUsers from "@/components/pw1/ModalUsers"
 
 export default function Users(){
     return(
@@ -15,7 +14,6 @@ export default function Users(){
         return(
             <section>
                 {users.map((user)=>{ return <SingleUser key={user.id} user={user}/>})}
-                <ModalUsers/>
                 {/* <CreateUser/> */}
             </section>
         )

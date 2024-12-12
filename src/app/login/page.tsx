@@ -1,5 +1,6 @@
-import FormNotes from "@/components/pw1/FormNotes";
-import FormLogin from "@/components/pw1/forms/FormLogin";
+import { FormLogin } from "@/components/pw1/forms/FormAuthBase"
+/* import FormNotes from "@/components/pw1/FormNotes"; */
+
 
 export default function Page(){
     return(

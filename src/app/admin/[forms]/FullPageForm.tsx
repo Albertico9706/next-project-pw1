@@ -1,22 +1,15 @@
-"use client"
-
 import { actionCreateJob } from "@/lib/actions/server_actions"
 import { useFormState } from "react-dom"
 import toast from "react-hot-toast"
-import { FormRefContext } from "../context/Contexts"
-import { useContext } from "react"
 
-export default function FormJob(){
-    const  modal=useContext(FormRefContext)
+export function FullPageForm(){
     const[state,formAction,isPending]=useFormState(actionCreateJob ,{success:false})
-    const {error,success,data}=state
+    const {error,success}=state
     if(success){
         toast("Nueva oferta añadida",{id:"success"})
-        modal?.current?.close()
     }
-    
-    return(
-        <form action={formAction} className="*:w-full max-w-fit  flex flex-col items-start [&_input]:ps-2 [&_*:has(+required)]:text-red-700  [&_label]:label
+return(
+<form action={formAction} className="*:w-full max-w-fit  flex flex-col items-start [&_input]:ps-2 [&_*:has(+required)]:text-red-700  [&_label]:label
         md:grid md:grid-cols-2">
             <label  htmlFor="">Titulo</label><input  required name="jobTitle" id="jobTitle" type="text" />
             <label htmlFor="">Localizacion</label><input  required name="jobGeo" id="jobGeo" type="text" />
@@ -31,5 +24,7 @@ export default function FormJob(){
             <label htmlFor="">Descripción</label><textarea  name="jobDescription" id="jobDescription"></textarea>
             <button type="submit"className="btn btn-accent mt-8 col-span-2">{isPending?<label >Crear</label> :<label><span className="loading loading-spinner"></span>Creando</label>   }  </button>
         </form>
-    )
+
+)
+
 }

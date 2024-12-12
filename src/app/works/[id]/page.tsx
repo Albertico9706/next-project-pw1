@@ -3,12 +3,7 @@ import { Job } from "@prisma/client"
 import xss from "xss"
 import { CardJobTitle } from "../CardJob"
 
-export async function generateStaticParams(){
-    const jobs=await prisma.job.findMany()
-    return jobs.map((job)=>({
-       id:job.id.toString()
-    }))
-} 
+
 
 export default async function  Page ({params}:{params:{id:string}}){
     const {id}=await params
@@ -44,6 +39,13 @@ function ProvidedHtml({content}:{content:string}){
         ></div>
     )
 }
+
+export async function generateStaticParams(){
+    const jobs=await prisma.job.findMany()
+    return jobs.map((job)=>({
+       id:job.id.toString()
+    }))
+} 
 
 
 

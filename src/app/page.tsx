@@ -13,3 +13,12 @@ export const metadata:Metadata={
     description:"El lugar para encontrar el trabajo de tus sueños",
     keywords:["remote work","work","remote","jobs"]
 }
+
+export const page_routes={
+    admin:"admin",
+    login:"login",
+    logout:"logout",
+    users:"users",
+    seedDb:"prisma_push",
+    jobs:"works",
+} as const

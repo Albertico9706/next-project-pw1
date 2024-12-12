@@ -1,17 +1,30 @@
 "use client"
+import { formLoginAction } from "@/lib/actions/server_actions";
+import { FormAuthAction } from "@/lib/actions/server_actions";
+import { useFormState } from "react-dom";
+import toast from "react-hot-toast";
+import { formSignAction } from "@/lib/actions/server_actions";
 
-import { FormAuthAction } from "@/lib/actions/server_actions"
-import { useFormState } from "react-dom"
-import toast from "react-hot-toast"
+export  function FormLogin(){
+    return(<FormAuthBase formActionIn={formLoginAction}/>)
+}
+export function FormSign(){
+    return(<FormAuthBase formActionIn={formSignAction} sign/>)
+}
 
-export default async function  FormAuthBase({formActionParameter,sign=false}:{formActionParameter:FormAuthAction,sign?:boolean}){
+
+
+
+type Props={formActionIn:FormAuthAction,sign?:boolean}
+
+export async function  FormAuthBase({formActionIn,sign=false}:Props){
     
-    const[state,formAction,isPending]=useFormState(formActionParameter ,{success:false})
+    const[state,formAction,isPending]=useFormState(formActionIn ,{success:false})
     const {error,success,data}=state
     const btnMessage=sign? "Registrar":"Iniciar"   
     success&& toast(`Exito al ${btnMessage.toLowerCase()} sesión`,{id:"success"})
         return(<div className="mt-20">
-            <form action={formAction}  className=" dark:bg-slate-700 p-8 py-4  max-w-md mx-auto disabled has:invalid:bg-red-500 shadow shadow-neutral-500">
+            <form action={formAction}  className=" dark:bg-slate-700 p-8 py-4  max-w-sm mx-auto disabled has:invalid:bg-red-500 shadow shadow-neutral-500">
             <legend className="text-3xl py-4 text-center"><h1>{btnMessage} Sesión</h1></legend>
             <div className="flex flex-col">
                     <label className="">User:</label> 
