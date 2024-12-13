@@ -16,7 +16,10 @@ export default async function Page({params}:{params:Props}){
     const search=useSearchParams()
     const id=search.get("id")
     return(
-        <FullPageForm id={Number(id)}/>
+        <div className="min-w-100vh" >
+            <FullPageForm id={Number(id)}/>
+
+        </div>
     )
 }
 

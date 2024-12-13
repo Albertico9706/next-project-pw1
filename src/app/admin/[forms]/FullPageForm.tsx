@@ -53,7 +53,7 @@ return(
                 <option value="">USD</option><option value="">MLC</option><option value="">GBP</option><option value="">CAD</option>
             </select>
             <label htmlFor="">Descripción</label><textarea  name="jobDescription" id="jobDescription"></textarea>
-            <button type="submit"className="btn btn-accent mt-8 col-span-2">{isPending?<label >Crear</label> :<label><span className="loading loading-spinner"></span>Creando</label>   }  </button>
+            <button type="submit"className="btn btn-accent mt-8 col-span-2">{!isPending?<label >Crear</label> :<span className="loading loading-spinner"></span>   }  </button>
         </form>
 
 )

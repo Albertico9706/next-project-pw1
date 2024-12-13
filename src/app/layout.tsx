@@ -38,9 +38,9 @@ export default async function RootLayout({children}: {children: React.ReactNode}
             {children}
         </div>
 
-        <footer className='flex w-full h-8 justify-center items-center bg-black/10'><div>All rigths reserved</div></footer>
+        {/* <footer className='flex w-full h-8 justify-center items-center bg-black/10'><div>All rigths reserved</div></footer> */}
         </AuthProvider>
-        <Link className='btn btn-info btn-circle fixed bottom-8 right-4 ' href="#">A</Link>
+        {/* <Link className='btn btn-info btn-circle fixed bottom-8 right-4 ' href="#">A</Link> */}
     
     </ThemeProvider>
     </body>

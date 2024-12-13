@@ -2,13 +2,13 @@ import { FormRefProvider } from "@/components/pw1/context/Contexts"
 import JobTable from "./adminTables/JobTable"
 
 export const columns=["Id","Image","Compañía","Titulo","Nivel","Localización","Fecha"]
-//See the nextjs documentation for improve the sync of the state betwen server and client with the managment of the routes
+//Use the sync of the state betwen server and client with the managment of the routes
 export default function Page(){
     return(
-    <div className="container overflow-auto">
+    <div className="overflow-auto">
         <FormRefProvider>
         <JobTable/>
-        <FilterSelect/>
+        {/* <FilterSelect/> */}
         </FormRefProvider>
         </div>)
 }

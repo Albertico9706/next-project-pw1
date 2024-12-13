@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function DropdownDaisy(){
     return(<div className=" dropdown dropdown-arrow hover:dropdown-open relative content-center group border-b-2 border-transparent hover:border-blue-600 ">
-        <div className="dropdown-title label label-text dark:text-white relative ">Title <span className="pe-1 transition rotate-180 group-hover:translate-y-1  group-hover:border-blue-600">^</span></div>
+        <div className="dropdown-title label label-text dark:text-white relative text-base-300 ">Menú <span className="pe-1 transition rotate-180 group-hover:translate-y-1  group-hover:border-blue-600">^</span></div>
         <div className="dropdown-content ">
         <Menu/>
         </div>
@@ -23,13 +23,14 @@ export default function DropdownDaisy(){
 function Menu(){
     return(
         <ul className="bg-white-400/60 menu-sm w-auto self-center glass backdrop-blur-md menu mt-4 rounded ">
-            <li><Link href="users">Usuarios.</Link></li>
-            <li><Link href="works">Trabajos</Link></li>
-            <li><Link href="/modify">Protected</Link></li>
-            <li><Link href="/admin">Admin</Link></li>
-            <li><Link href="icons">Icons</Link></li>
-            <li><Link href="queenproblem">Problema de la reina.</Link></li>
-            <li><Link href="prisma_push">SeedDB</Link></li>
+            {MENUS_LINKS.map(([path,title],i)=>{
+                return <li key={i}><Link href={path}>{title}</Link></li>
+            })}
         </ul>
     )
 }
+
+const MENUS_LINKS=[
+["/works","Trabajos"],
+["/admin","Administrador"]
+]
