@@ -26,7 +26,6 @@ export default async function JobTable(){
         <HeadJobTable columns={columns}/>
         <tbody>
             {jobs.map((job)=>{
-                console.log(job.id)
                 return <JobRow key={job.id} job={job}/>
             })}
         </tbody>
@@ -80,7 +79,7 @@ function SearchFloating(){
     return(
         <div className="join fixed top-32 right-8  group">
         <div className="  peer">Firter by</div>
-        <input type="search" placeholder="Search..." className=" group-focus:w-32 transition duration-1000 w-24 join-item input input-xs input-bordered" /> 
+        <input type="search" placeholder="Search..." className=" group-focus:w-32 duration-1000 w-24 join-item input input-xs input-bordered" /> 
     </div>
     )
 }

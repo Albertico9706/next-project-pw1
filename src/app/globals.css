@@ -41,6 +41,17 @@
   .llenar{
     animation: fill 4s ease infinite;
   }
+
+  @keyframes reveal{
+    from{
+        opacity: .8;
+        scale: .8;
+    }
+    20%{
+        opacity: 1;
+        scale: 1;
+    }
+}
   
   
 }
@@ -65,7 +76,11 @@
 }
 
 @layer utilities{
-  
+  .wheel-scale{
+    animation:  reveal linear both;
+    view-timeline-name: --imgTimeline;
+    animation-timeline: --imgTimeline;
+  }
 
   .starting{
     

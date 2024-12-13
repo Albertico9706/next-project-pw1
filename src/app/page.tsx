@@ -1,11 +1,32 @@
-import PageMain from "@/components/pw1/PageMain"
+
+import Hero from "@/components/pw1/newContent/Hero"
+import SectionsContent from "@/components/pw1/newContent/SectionsContent"
+import RadialProgres from "@/components/pw1/RadialProgres"
+import { SectionJobs } from "@/components/pw1/SectionCard"
 import { Metadata } from "next"
 {/* <!-- API JOBICY -->
         <!-- https://jobicy.com/api/v2/remote-jobs?count=20&tag=python --> */}
 
-export default async  function Restaurancy(){
+
+export default function PageMain(){
+    return(
+    <main className="w-full overflow-hidden" >
+        <HeroTitle/>
+        <Hero/>
+        <SectionJobs/>
+        <RadialProgres />
+        <SectionsContent/>
+    </main>)
+
     
-    return ( <PageMain/>)
+}
+        
+function HeroTitle(){
+    return(
+        <h1 className="p-12 text-center text-5xl font-bold font-sans w-full  text-blue-400 italic">
+            Encuentra tu <em className="grad-primary bg-clip-text text-transparent">trabajo</em> remoto
+        </h1>
+    )
 }
 
 export const metadata:Metadata={

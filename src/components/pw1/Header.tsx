@@ -5,7 +5,7 @@ import AuthAnchor from "./AuthAnchor";
 
 export default function Header(){
     return(
-    <header className="z-20 top-0 notes max-w-full flex backdrop-blur-sm justify-between sticky items-center p-2 px-8  place-content-center shadow-lg transition min-w-dvw ">
+    <header className="z-20 top-0 notes max-w-full flex backdrop-blur-sm justify-between sticky items-center p-2 px-8  place-content-center shadow-lg  min-w-dvw ">
         <Logo/>
         <div className="flex gap-8 items-center">
         <DropdownDaisy></DropdownDaisy>

@@ -5,7 +5,7 @@ import { redirect } from "next/navigation"
 import prisma from "../prisma"
 import { createToken, signinUser } from "../utils/session_actions"
 import bcrypt from "bcrypt" 
-import {z, ZodAny, ZodObject, ZodTypeAny} from "zod"
+import {string, z, ZodAny, ZodObject, ZodTypeAny} from "zod"
 import { revalidatePath } from "next/cache"
 
 export const hitRediret=(url:string)=>{
@@ -18,6 +18,7 @@ const CreateUserSchema=z.object({
 
 
 
+
 const CreateJobSchema=z.object({jobTitle:z.string(),
     jobLevel:z.string(),
     companyLogo:z.string(),
@@ -25,6 +26,21 @@ const CreateJobSchema=z.object({jobTitle:z.string(),
     jobDescription:z.string(),
     jobGeo:z.string()
 })
+
+const SchemaExample=z.object({
+    id:z.coerce.number(),
+    text:z.string(),
+    usl:z.string().url()
+}).partial
+
+const UpdateUserSchema=z.object({jobTitle:z.string().optional(),
+    id:z.coerce.number(),
+    jobLevel:z.string(),
+    companyLogo:z.string(),
+    companyName:z.string(),
+    jobDescription:z.string(),
+    jobGeo:z.string()
+}).partial()
 
 const schemas={
     user:CreateUserSchema,
@@ -97,6 +113,25 @@ revalidatePath("/admin")
 const JobStore=prisma.job
 const newJob=await JobStore.create({data:job.data})
 console.log(newJob)
+return {success:true,data:job.data}
+
+}
+
+export const actionUpdateJob:ValidatingAction<Job>=async(state,formData)=>{
+    "use server"
+
+const entries=Object.fromEntries(formData.entries())
+console.log(entries)
+const job=UpdateUserSchema.safeParse(entries)
+
+if(!job.success) return {success:false ,error:job.error.flatten().fieldErrors }
+revalidatePath("/admin")
+const JobStore=prisma.job
+const data=job.data
+const update= await JobStore.update(
+    {where:{id:data.id}
+    ,data:{...data}})
+
 return {success:true,data:job.data}
 
 }

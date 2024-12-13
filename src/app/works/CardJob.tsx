@@ -7,9 +7,9 @@ type Props={job:Job}
 
 export default function CardJob({job}:Props){  
     return(
-        <div className="p-8 bg-white shadow card dark:bg-slate-900">
+        <div className="p-8 bg-white shadow card dark:bg-slate-900  wheel-scale">
             <CardJobTitle job={job}/>
-            <div className="card-body">{job.jobExcerpt&&<p>{excerptFormat(job.jobExcerpt)}</p>}</div>
+            <div className="card-body max-md:hidden">{job.jobExcerpt&&<p>{excerptFormat(job.jobExcerpt)}</p>}</div>
             <div className="card-actions flex justify-between items-center"> 
                 <p className="flex"><Location/>{job.jobGeo}</p>    
                 <Link href={`/works/${job.id.toString()}`} className="btn btn-secondary ">Ver Detalles <span className="rotate-90">^</span> </Link>

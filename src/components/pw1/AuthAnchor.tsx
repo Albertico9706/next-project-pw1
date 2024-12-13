@@ -17,14 +17,18 @@ export default  function AuthAnchor(){
         <Link href="/signin" className="btn btn-primary ">Signin</Link>
     </div>
     :
-    <div className="flex gap-2 items-center">
-    <div className="avatar placeholder items-center gap-2 p-4" >
-        <div className=" btn btn-disabled bg-slate-700 dark:text-white/80  btn-square btn-sm" >{tokenData.name.at(0)}</div>
-        <p>{tokenData.name}</p>
-    </div>
-    <ButtonLogOut/>
+    <AvatarPerfil name={tokenData.name}/>
     
-    </div>
     )
     
+}
+
+function AvatarPerfil({name}:{name:string}){
+    return(
+        <div className="flex gap-2 items-center ">
+                <div className="text-black btn btn-disabled bg-slate-700 dark:text-white/80  btn-square btn-sm" >{name.at(0)}</div>
+                <p>{name}</p>
+            <ButtonLogOut/>
+        </div>
+    )
 }

@@ -30,7 +30,6 @@ export function fillFormJob(ref:RefObject<HTMLFormElement>,serverData:Object){
     const textarea=form?.querySelector("textarea")
     if(!inputCollection)return
     const entries=Object.entries(serverData)
-    console.log(entries)
     entries.map(([key,value])=>{
         const input=inputCollection.namedItem(key)
         if(input){input.value=value
