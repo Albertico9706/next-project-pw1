@@ -68,6 +68,10 @@
       }
   }
 
+  .conic{
+    background: conic-gradient(from var(--rotate), orange 10deg,transparent 45deg 180deg , orange 180deg 190deg, transparent 225deg 360deg  );
+  }
+
   
 
   

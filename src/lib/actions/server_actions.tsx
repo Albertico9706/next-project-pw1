@@ -12,8 +12,8 @@ export const hitRediret=(url:string)=>{
     redirect(url)
 }
 const CreateUserSchema=z.object({
-    name:z.string().min(5).max(20),
-    password:z.string().min(5)
+    name:z.string().max(20),
+    password:z.string().min(4)
 })
 
 

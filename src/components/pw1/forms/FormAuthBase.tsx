@@ -12,9 +12,6 @@ export function FormSign(){
     return(<FormAuthBase formActionIn={formSignAction} sign/>)
 }
 
-
-
-
 type Props={formActionIn:FormAuthAction,sign?:boolean}
 
 export async function  FormAuthBase({formActionIn,sign=false}:Props){
@@ -28,12 +25,12 @@ export async function  FormAuthBase({formActionIn,sign=false}:Props){
             <legend className="text-3xl py-4 text-center"><h1>{btnMessage} Sesión</h1></legend>
             <div className="flex flex-col">
                     <label className="">User:</label> 
-                    <input required className=" input-secondary peer" minLength={3}  name="name" id="name" type="text" />
-                    <small  className="text-xs peer-invalid:text-red-600 ">Al menos 3 caracteres</small>
+                    <input required className=" input-secondary peer-name]:" minLength={3}  name="name" id="name" type="text" />
+                   {/*  <small  className="text-xs peer-[name]:invalid:text-red-600 ">Al menos 3 caracteres</small> */}
                     {error&&<p>{error.name}</p>}
                     <label className=""  >Password:</label>
-                    <input  minLength={4} className="input-scondary peer" name="password" id="password" type="password"/>
-                    <small  className="text-xs peer-invalid:text-red-600 ">Al menos 4 caracteres</small>
+                    <input  minLength={4} className="input-scondary peer-[pass]" name="password" id="password" type="password"/>
+                   {/*  <small  className="text-xs peer/pass-invalid:text-red-600 ">Al menos 4 caracteres</small> */}
                     {error&&<p>{error.password}</p>}
                     <button className="btn-primary peer-invalid:btn-disabled  peer-invalid:btn-error btn p-1.5 mt-8 ">{isPending?"Loading":btnMessage}</button>
                     <div className="flex flex-col place-items-center p-1  ">

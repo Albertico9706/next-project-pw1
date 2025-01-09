@@ -26,7 +26,7 @@ export default  function AuthAnchor(){
 function AvatarPerfil({name}:{name:string}){
     return(
         <div className="flex gap-2 items-center ">
-                <div className="text-black btn btn-disabled bg-slate-700 dark:text-white/80  btn-square btn-sm" >{name.at(0)}</div>
+                <div className="text-black  dark:text-white/80 btn btn-ghost bg-neutral-500 pointer-events-none placeholder btn-circle btn-sm" >{name.at(0)}</div>
                 <p>{name}</p>
             <ButtonLogOut/>
         </div>

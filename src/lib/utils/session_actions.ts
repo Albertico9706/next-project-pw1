@@ -56,8 +56,7 @@ export const checkUser=async()=>{
         const {id,role,name}=user
         const tokenData={id:id.toString,role,name}
         const access_token= jwt.sign(tokenData,JWTKEY)
-
-        console.log("access token",access_token)
+        cookies().set("access_token",access_token, {maxAge:3600})
         redirect("/")
     }
 
@@ -77,7 +76,7 @@ export async function loginUser({_name,_password}:Credentials){
     const token_data={id:id.toString(),role,name}
     const access_token= jwt.sign(token_data,JWTKEY)
     createToken(token_data)
-    cookies().set("access_token",access_token)
+    cookies().set("access_token",access_token, {maxAge:3600})
     
     return true
 }

@@ -4,7 +4,7 @@ import {ReactNode} from "react"
 
 export default function SectionsContent(){
     return(
-        <div className='block [&_p]:p-2  [&_h3]:text-4xl [&_h3]:text-primary [&_h3]:p-4'>
+        <div className='block [&_p]:p-2  [&_h3]:text-4xl [&_h3]:text-blue-400 [&_h3]:p-4'>
         <Section1/>
         <Section2/>
         <Section3/>
@@ -78,21 +78,22 @@ function Section3(){
 function Section4(){
     return(
         <SectionBase>
+           
             <h3>Testimonios de Trabajadores Remotos</h3>
-            <p><em>Trabajar desde casa me ha permitido disfrutar de más tiempo con mi familia y dedicarme a proyectos personales, mientras sigo creciendo profesionalmente.</em>
-            <span>Laura, Diseñadora Gráfica Remota</span></p>
-            <p><em >Nunca pensé que podría trabajar para una empresa internacional, pero gracias a esta plataforma, estoy haciendo lo que me apasiona desde cualquier parte del mundo.</em>  
-            <span>Carlos, Desarrollador Web</span></p>
+            <q><em>Trabajar desde casa me ha permitido disfrutar de más tiempo con mi familia y dedicarme a proyectos personales, mientras sigo creciendo profesionalmente.</em>
+            <span>Laura, Diseñadora Gráfica Remota</span></q>
+            <q><em >Nunca pensé que podría trabajar para una empresa internacional, pero gracias a esta plataforma, estoy haciendo lo que me apasiona desde cualquier parte del mundo.</em>  
+            <span>Carlos, Desarrollador Web</span></q>
         </SectionBase>
     )
 }
-function Section5(){
+/* function Section5(){
     return(
         <SectionBase>
             *Muestra logos de empresas destacadas que ofrecen trabajos remotos a través de tu plataforma, como Google, Microsoft, GitHub, etc.*
         </SectionBase>
     )
-}
+} */
 function Section6(){
     return(
         <SectionBase>

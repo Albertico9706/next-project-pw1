@@ -10,7 +10,7 @@ import { Metadata } from "next"
 
 export default function PageMain(){
     return(
-    <main className="w-full overflow-hidden" >
+    <main className="dark:text-base-content w-full overflow-hidden bg-gradient-to-br from-black/5 to-transparent" >
         <HeroTitle/>
         <Hero/>
         <SectionJobs/>
@@ -23,7 +23,7 @@ export default function PageMain(){
         
 function HeroTitle(){
     return(
-        <h1 className="p-12 text-center text-5xl font-bold font-sans w-full  text-blue-400 italic">
+        <h1 className="p-12 text-center text-5xl font-bold font-sans w-full mt-16  text-blue-400 italic">
             Encuentra tu <em className="grad-primary bg-clip-text text-transparent">trabajo</em> remoto
         </h1>
     )
