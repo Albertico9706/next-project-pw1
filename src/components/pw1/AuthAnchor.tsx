@@ -6,7 +6,6 @@ import ButtonLogOut from "./ButtonLogOut"
 
 export default  function AuthAnchor(){
     const {tokenData}=useContext(AuthContext)
-    console.log("anchor",tokenData)
    
     
     return(

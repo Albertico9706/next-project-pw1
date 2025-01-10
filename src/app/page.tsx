@@ -1,21 +1,21 @@
 
 import Hero from "@/components/pw1/newContent/Hero"
 import SectionsContent from "@/components/pw1/newContent/SectionsContent"
-import RadialProgres from "@/components/pw1/RadialProgres"
 import { SectionJobs } from "@/components/pw1/SectionCard"
 import { Metadata } from "next"
 {/* <!-- API JOBICY -->
         <!-- https://jobicy.com/api/v2/remote-jobs?count=20&tag=python --> */}
 
-
+console.log(process.env.NODE_ENV)
 export default function PageMain(){
     return(
     <main className="dark:text-base-content w-full overflow-hidden bg-gradient-to-br from-black/5 to-transparent" >
+
         <HeroTitle/>
         <Hero/>
         <SectionJobs/>
-        <RadialProgres />
         <SectionsContent/>
+        
     </main>)
 
     

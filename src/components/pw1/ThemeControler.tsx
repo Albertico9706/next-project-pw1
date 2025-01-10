@@ -8,9 +8,7 @@ export default function ThemeControler(){
     
     const {theme,setTheme}=useTheme()
     const dark=theme==="dark"
-    const handleClick=()=>{
-         console.log(theme)
-         
+    const handleClick=()=>{       
         const newTheme= dark?"light":"dark"
         setTheme(newTheme)
     }
