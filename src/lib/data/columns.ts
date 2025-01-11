@@ -1,0 +1,1 @@
+export const columns=["Id","Image","Compañía","Titulo","Nivel","Localización","Fecha"]

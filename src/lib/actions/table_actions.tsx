@@ -2,7 +2,7 @@
 import { revalidatePath } from "next/cache"
 import prisma from "../prisma"
 import { redirect } from "next/navigation"
-type DeleteState={
+export type DeleteState={
     success:true,
     title:string
 }|{

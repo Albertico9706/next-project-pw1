@@ -1,6 +1,6 @@
 "use client"
 import { formLoginAction } from "@/lib/actions/server_actions";
-import { FormAuthAction } from "@/lib/actions/server_actions";
+import { FormAuthAction } from "@/lib/types";
 import { useFormState } from "react-dom";
 import toast from "react-hot-toast";
 import { formSignAction } from "@/lib/actions/server_actions";
@@ -16,8 +16,10 @@ type Props={formActionIn:FormAuthAction,sign?:boolean}
 
 export async function  FormAuthBase({formActionIn,sign=false}:Props){
     
-    const[state,formAction,isPending]=useFormState(formActionIn ,{success:false})
-    const {error,success,data}=state
+    const[state,formAction,isPending]=useFormState(formActionIn ,null)
+    const success=state&&state.success
+    const data=success===true? state.data:null 
+    const error=state&& success===false? state.error:null
     const btnMessage=sign? "Registrar":"Iniciar"   
     success&& toast(`Exito al ${btnMessage.toLowerCase()} sesión`,{id:"success"})
         return(<div className="mt-20">

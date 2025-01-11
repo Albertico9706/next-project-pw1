@@ -1,12 +1,9 @@
 "use client"
-import { actionCreateJob, ValidatedState, ValidatingAction } from "@/lib/actions/server_actions";
+
 import { TokenDataType } from "@/lib/utils/session_actions";
-import { Job } from "@prisma/client";
-import { Payload } from "@prisma/client/runtime/library";
 import { ThemeProvider as NextThemeProvider } from "next-themes";
 import { ComponentProps, createContext, Dispatch, ReactNode, RefObject, SetStateAction, useEffect, useRef, useState } from "react";
-import { useFormState } from "react-dom";
-import toast from "react-hot-toast";
+
 export function ThemeProvider({children,...props}:ComponentProps<typeof NextThemeProvider>){
     return (
         <NextThemeProvider {...props}>{children}</NextThemeProvider>

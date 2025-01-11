@@ -8,8 +8,10 @@ import { useContext } from "react"
 
 export default function FormJob(){
     const  modal=useContext(FormRefContext)
-    const[state,formAction,isPending]=useFormState(actionCreateJob ,{success:false})
-    const {error,success,data}=state
+    const[state,formAction,isPending]=useFormState(actionCreateJob ,null)
+    const success=state && state.success
+    /* const data =success && state.data */
+    /* const error=state&& success===false? state.error:null */
     if(success){
         toast("Nueva oferta añadida",{id:"success"})
         modal?.current?.close()

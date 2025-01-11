@@ -2,21 +2,20 @@
 
 import { actionCreateJob, actionUpdateJob } from "@/lib/actions/server_actions"
 import { getJob } from "@/lib/actions/table_actions"
-import { fillForm, fillFormJob } from "@/lib/utils/fill_form"
+import { fillFormJob } from "@/lib/utils/fill_form"
 import { Job } from "@prisma/client"
 import { usePathname, useRouter } from "next/navigation"
-import { RefObject, useEffect, useRef, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { useFormState } from "react-dom"
 import toast from "react-hot-toast"
 
 export function FullPageForm({id}:{id:number|null}){
     const update=usePathname().endsWith("update")
     const action=update?actionUpdateJob:actionCreateJob
-    const[state,formAction,isPending]=useFormState(action ,{success:false})
+    const[state,formAction,isPending]=useFormState(action ,null)
     const router=useRouter()
     const [job,setJob]=useState<Job|null>(null)
     const ref=useRef<HTMLFormElement|null>(null)
-    const {error,success}=state
     useEffect(()=>{
         const reciveJob=async()=>{
             if(!id)return
@@ -27,12 +26,14 @@ export function FullPageForm({id}:{id:number|null}){
         reciveJob()
     },[])
     if(job){fillFormJob(ref,job)}
-    if(success){
+    if(state && state.success){
         const message=update?"Entrada actualizada":"Añadido con éxito"
         toast(message,{id:"success"})
         ref.current?.reset()
         router.replace("/admin")
     }
+    const error=state && state.success===false? state.error:null;
+    
 return(
 <form action={formAction} ref={ref} className="aspect-video mx-auto *:w-full h-full flex flex-col items-start  [&_input]:ps-2  [&_label]:label
         md:grid md:grid-cols-2 md:gap-8 p-8">
@@ -52,7 +53,6 @@ return(
                 <option disabled value="">Moneda de pago</option>
                 <option value="">USD</option><option value="">MLC</option><option value="">GBP</option><option value="">CAD</option>
             </select>
-            {error && error.salaryCurrency}
             <label htmlFor="">Descripción</label><textarea  name="jobDescription" id="jobDescription"></textarea>
             {error&& error.jobDescription}
             <button type="submit"className="btn btn-accent mt-8 col-span-2">{!isPending?<label >Crear</label> :<span className="loading loading-spinner"></span>   }  </button>

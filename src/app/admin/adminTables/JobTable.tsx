@@ -1,15 +1,11 @@
-
-import ModifyButtons from "@/components/pw1/crudElements/ModifyButtons"
 import prisma from "@/lib/prisma"
 import { Job } from "@prisma/client"
 import Image from "next/image"
-import { columns } from "../page"
-import { SelectColum } from "../page"
+import { columns } from "../../../lib/data/columns"
 import Link from "next/link"
 import ButtonDeleteJob from "../[forms]/ButtonDeleteJob"
 //Filtrado por cada campo y ordenar segun el campo tambien
 
-const baseUrl="/admin"
 
 export default async function JobTable(){
     const jobs =await prisma.job.findMany()
@@ -75,12 +71,25 @@ function HeadJobTable({columns}:{columns:string[]}){
 
 
 
-function SearchFloating(){
+/* function SearchFloating(){
     return(
         <div className="join fixed top-32 right-8  group">
         <div className="  peer">Firter by</div>
         <input type="search" placeholder="Search..." className=" group-focus:w-32 duration-1000 w-24 join-item input input-xs input-bordered" /> 
     </div>
+    )
+} */
+
+
+export function SelectColum(){
+
+    return(
+        <select defaultValue={1} name="" id="">
+            <option value={1}>Filter</option>
+        {columns.map((col,i)=>{
+                return <option key={i}>{col}</option>
+            })}
+        </select>
     )
 }
 

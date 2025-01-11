@@ -1,12 +1,13 @@
 "use server"
-import { Job } from "@prisma/client"
 import { User } from "@prisma/client"
 import { redirect } from "next/navigation"
 import prisma from "../prisma"
 import { createToken, signinUser } from "../utils/session_actions"
 import bcrypt from "bcrypt" 
-import {string, z, ZodAny, ZodObject, ZodTypeAny} from "zod"
+import { z , ZodTypeAny} from "zod"
 import { revalidatePath } from "next/cache"
+import { FlattenOptional ,ValidatingAction} from "../types"
+import { Errors } from "../types"
 
 export const hitRediret=(url:string)=>{
     redirect(url)
@@ -27,11 +28,11 @@ const CreateJobSchema=z.object({jobTitle:z.string(),
     jobGeo:z.string()
 })
 
-const SchemaExample=z.object({
+/* const SchemaExample=z.object({
     id:z.coerce.number(),
     text:z.string(),
     usl:z.string().url()
-}).partial
+}).partial */
 
 const UpdateUserSchema=z.object({jobTitle:z.string().optional(),
     id:z.coerce.number(),
@@ -48,31 +49,29 @@ const schemas={
 } as const
 
 export type ValidatedState<T>={
-    success:boolean,
-    error?:FlattenOptional<T>
+    success:false,
+    error:FlattenOptional<T>,
+    message?:string
+}|{
+    success:true,
     data?:Partial<T>
 }
 
-type FlattenOptional<T>=RecordOptional<T,string[]|undefined>
-type RecordOptional<T,P>={[K in keyof T]?:P}
-export type ValidatingAction<T>=(state:ValidatedState<T>, formData:FormData)=>Promise<ValidatedState<T>>
-export type FormAuthAction=(state:ValidatedState<User>,form:FormData)=>Promise<ValidatedState<User>>
-export type CreateJobAction=(state:ValidatedState<Job>,form:FormData)=>Promise<ValidatedState<Job>>
 
-enum Errors{
-    auth="El usuario o la contraseña son incorrectos",
-}
+
+
 
 
 type ZodCustomSchema<T>=T extends ZodTypeAny? T:never
-
+/* eslint-disable no-unused-vars */
 export async function formControllerAction<T>(state: ValidatedState<z.infer<ZodCustomSchema<T>>>,formData:FormData):Promise<ValidatedState<T>>{
-
+/* eslint-enble no-unused-vars */
 throw new Error("Este metodo no esta implementado todavía")
 }
 
 
 export const formLoginAction:ValidatingAction<User>=async (state,formData)=>{
+    state&& console.log()
     validData(formData,CreateJobSchema)
     const output={success:false,error:{name:[Errors.auth],password:[Errors.auth]}}
     const entries=Object.fromEntries(formData.entries())
@@ -93,9 +92,9 @@ export const formLoginAction:ValidatingAction<User>=async (state,formData)=>{
     
 }
 
-
 export const formSignAction:ValidatingAction<User>=async (state,formData)=>{
     "use server"
+    state&& console.log()
     const entries=Object.fromEntries(formData.entries())
     const isValid=CreateUserSchema.safeParse(entries) 
     if(!isValid.success)return {success:false ,error:isValid.error.flatten().fieldErrors }
@@ -103,9 +102,13 @@ export const formSignAction:ValidatingAction<User>=async (state,formData)=>{
     await signinUser({_name:name.toString(),_password:password.toString()})
     return {success:true}
 }
-
-export const actionCreateJob:ValidatingAction<Job>=async(state,formData)=>{
+/* type ZodFormState<T>=ValidateError<T>|ValidateSucces<T>|null
+type ValidateError<T>={success:false, error:FlattenOptional<T>}
+type ValidateSucces<T>={success:true ,data:Partial<T>} */
+//:(state:ZodFormState<z.infer<typeof schemas.job>>, formData:FormData)=>Promise<ZodFormState<z.infer<typeof schemas.job>>>
+export const actionCreateJob:ValidatingAction<z.infer<typeof UpdateUserSchema>>=async(state,formData)=>{
     "use server"
+    state&& console.log()
 const entries=Object.fromEntries(formData.entries())
 const job=schemas.job.safeParse(entries)
 if(!job.success) return {success:false ,error:job.error.flatten().fieldErrors }
@@ -117,9 +120,9 @@ return {success:true,data:job.data}
 
 }
 
-export const actionUpdateJob:ValidatingAction<Job>=async(state,formData)=>{
+export const actionUpdateJob:ValidatingAction<z.infer<typeof UpdateUserSchema>>=async(state,formData)=>{
     "use server"
-
+    state&& console.log()
 const entries=Object.fromEntries(formData.entries())
 console.log(entries)
 const job=UpdateUserSchema.safeParse(entries)
@@ -131,7 +134,7 @@ const data=job.data
 const update= await JobStore.update(
     {where:{id:data.id}
     ,data:{...data}})
-
+update&&console.log()
 return {success:true,data:job.data}
 
 }
@@ -141,18 +144,3 @@ const validData=(formData:FormData,schema:ReturnType<typeof z.object>)=>{
     return schema.safeParse(formData)
     
 }
-
-
-
-
-
-
-/* const step=async()=>{
-    const start=new Date().getTime()
-    setTimeout(()=>{
-        const delay=new Date().getTime()
-        console.log(delay-start)
-        
-    
-     },3000)
-} */

@@ -1,7 +1,8 @@
 import { FormRefProvider } from "@/components/pw1/context/Contexts"
 import JobTable from "./adminTables/JobTable"
+/* import { SelectColum } from "./adminTables/JobTable" */
 
-export const columns=["Id","Image","Compañía","Titulo","Nivel","Localización","Fecha"]
+
 //Use the sync of the state betwen server and client with the managment of the routes
 export default function Page(){
     return(
@@ -13,24 +14,7 @@ export default function Page(){
         </div>)
 }
 
-function FilterSelect(){
-    return(
-        <div className="join fixed top-16 z-20 right-1/2  group">
-    <div className="  peer">Filter by</div>
-    <SelectColum/>
-</div>
-    )
-}
 
 
-export function SelectColum(){
 
-    return(
-        <select defaultValue={1} name="" id="">
-            <option value={1}>Filter</option>
-        {columns.map((col,i)=>{
-                return <option key={i}>{col}</option>
-            })}
-        </select>
-    )
-}
+

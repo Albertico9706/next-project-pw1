@@ -6,7 +6,6 @@ import Header from '@/components/pw1/Header'
 import { ThemeProvider } from "@/components/pw1/context/Contexts"
 import { AuthProvider } from '@/components/pw1/context/Contexts'
 import { getDataToken } from '@/lib/utils/session_actions'
-import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: 'WorkRem',
