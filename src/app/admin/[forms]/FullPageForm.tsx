@@ -27,7 +27,7 @@ export function FullPageForm({id}:{id:number|null}){
     },[])
     if(job){fillFormJob(ref,job)}
     if(state && state.success){
-        const message=update?"Entrada actualizada":"Añadido con éxito"
+        const message=update? "Entrada actualizada":"Añadido con éxito"
         toast(message,{id:"success"})
         ref.current?.reset()
         router.replace("/admin")

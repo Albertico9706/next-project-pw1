@@ -40,12 +40,12 @@ function ProvidedHtml({content}:{content:string}){
     )
 }
 
-export async function generateStaticParams(){
+/* export async function generateStaticParams(){
     const jobs=await prisma.job.findMany()
     return jobs.map((job)=>({
        id:job.id.toString()
     }))
-} 
+}  */
 
 
 
