@@ -17,9 +17,6 @@ const CreateUserSchema=z.object({
     password:z.string().min(4)
 })
 
-
-
-
 const CreateJobSchema=z.object({jobTitle:z.string(),
     jobLevel:z.string(),
     companyLogo:z.string(),
@@ -27,12 +24,6 @@ const CreateJobSchema=z.object({jobTitle:z.string(),
     jobDescription:z.string(),
     jobGeo:z.string()
 })
-
-/* const SchemaExample=z.object({
-    id:z.coerce.number(),
-    text:z.string(),
-    usl:z.string().url()
-}).partial */
 
 const UpdateUserSchema=z.object({jobTitle:z.string().optional(),
     id:z.coerce.number(),
@@ -56,10 +47,6 @@ export type ValidatedState<T>={
     success:true,
     data?:Partial<T>
 }
-
-
-
-
 
 
 type ZodCustomSchema<T>=T extends ZodTypeAny? T:never
@@ -102,10 +89,7 @@ export const formSignAction:ValidatingAction<User>=async (state,formData)=>{
     await signinUser({_name:name.toString(),_password:password.toString()})
     return {success:true}
 }
-/* type ZodFormState<T>=ValidateError<T>|ValidateSucces<T>|null
-type ValidateError<T>={success:false, error:FlattenOptional<T>}
-type ValidateSucces<T>={success:true ,data:Partial<T>} */
-//:(state:ZodFormState<z.infer<typeof schemas.job>>, formData:FormData)=>Promise<ZodFormState<z.infer<typeof schemas.job>>>
+
 export const actionCreateJob:ValidatingAction<z.infer<typeof UpdateUserSchema>>=async(state,formData)=>{
     "use server"
     state&& console.log()
