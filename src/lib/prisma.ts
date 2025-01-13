@@ -16,7 +16,12 @@ const pool = new Pool({ connectionString })
 const adapter = new PrismaPg(pool)
 
 export const prisma = globalForPrisma.prisma || new PrismaClient({ adapter }) */
+const {DATABASE_URL,NODE_ENV} =process.env
 export const prisma = globalForPrisma.prisma || new PrismaClient()
+console.log(NODE_ENV, DATABASE_URL)
+if (NODE_ENV === 'production' && !DATABASE_URL) {
+    throw new Error('DATABASE_URL environment variable is not set')
+  }
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.prisma = prisma
 
