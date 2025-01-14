@@ -1,8 +1,6 @@
-import CardJob from "@/app/works/CardJob";
-import { createClient } from "@/lib/supabase/supa_client";
+
 /* import prisma from "@/lib/prisma"; */
 import { ReactNode } from "react";
-import { Database} from "@/lib/supabase/supabase.types";
 
 export default function SectionCard() {
     return (<section className=" p-4  snap-proximity grid grid-cols-[repeat(3,1fr)] gap-4 ">
@@ -36,20 +34,5 @@ function BlowCard({children}:{children:ReactNode}) {
 }
 
 
-export async function  SectionJobs(){
-	const supabase=createClient<Database>()
-    /* const jobs =await prisma.job.findMany() */
-    const {data} =await supabase.from("Job").select()
-    console.log(data)
-    return (
-        <section className="*:w-240 *:h-auto flex gap-4 overflow-auto snap-x snap-start p-8">
-            {data&& data.map((job)=>{
-                return <CardJob key={job.id} job={job}/>
 
-            })}
-        </section>
-    )
-
-
-}
 
