@@ -1,7 +1,7 @@
 
 import Hero from "@/components/pw1/newContent/Hero"
 import SectionsContent from "@/components/pw1/newContent/SectionsContent"
-/* import { SectionJobs } from "@/components/pw1/SectionCard" */
+import { SectionJobs } from "@/components/pw1/SectionCard"
 import { Metadata } from "next"
 {/* <!-- API JOBICY -->
         <!-- https://jobicy.com/api/v2/remote-jobs?count=20&tag=python --> */}
@@ -13,7 +13,7 @@ export default function PageMain(){
 
         <HeroTitle/>
         <Hero/>
-        {/* <SectionJobs/> */}
+        <SectionJobs/>
         <SectionsContent/>
         
     </main>)
